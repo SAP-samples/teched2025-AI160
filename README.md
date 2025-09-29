@@ -40,7 +40,8 @@ Please note:
 * If you have your own AI Core instances for consuming Generative AI Hub capabilities, you can follow this tutorial using those instances.
   Please make the following adjustments:
     * You need to create a deployment for orchestration by referring the [documentation](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/create-deployment-for-orchestration?locale=en-US).
-    * Before beginning the exercises, you’ll need to provide system information. Instead of using the hands-on test system provided for this tutorial, use your own AI Core instance details, such as the AI Core client ID, secret, and authentication URL.
+    * Before beginning the exercises, you’ll need to provide system information.
+    Instead of using the hands-on test system provided for this tutorial, use your own AI Core instance details, such as the AI Core client ID, secret, and authentication URL.
     * If you’re running your application on BTP rather than locally, the SDKs will automatically retrieve your AI Core instance information from the VCAP_SERVICES environment variable. 
 
 
@@ -51,7 +52,7 @@ An AI-powered Purchase Order (PO) Management Agent that identifies overdue PO it
 ### Architecture
 
 The application demonstrates an AI agent workflow that orchestrates multiple specialized tools to process natural language queries about purchase order items.
-Available in both JavaScript (LangGraph) and Java (Spring AI) implementations.
+Available in both JavaScript ([LangGraph]((https://langchain-ai.github.io/langgraph/))) and Java (Spring AI) implementations.
 
 ### Core Integration Points
 
