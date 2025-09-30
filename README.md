@@ -1,37 +1,69 @@
+> [!CAUTION]
+> Access to test systems are considered temporal.
+> However, in all cases you can still use the sample code and tutorial available in this repository.
+> 
+> If you are part of a workshop session, the credentials will be shared with you.
+
 # AI160 - Build Your Own AI Agent-Based Solution with the Generative AI Hub
 
 ## Description
 
-This repository contains the material for the SAP TechEd 2025 session called Session ID - Session Title.  
+This repository contains material for multiple sessions:
+- SAP TechEd 2025 ["AI160 - Build Your Own AI Agent-Based Solution with the Generative AI Hub"](https://www.sap.com/events/teched/berlin/flow/sap/te25/catalog-inperson/page/catalog/session/1749827524991001reiY).
 
 ## Overview
 
-This session introduces attendees to...
+This session introduces attendees on building AI agent-based solutions using the [SAP AI Core SDKs](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/libraries-and-sdks) and the [Generative AI Hub](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/generative-ai-hub-in-sap-ai-core) in AI Foundation.
 
-## Requirements
+This session offers two parallel tracks:
+- [SAP Cloud SDK for AI (JavaScript)](exercises/javascript/README.md)
+- [SAP Cloud SDK for AI (Java)](exercises/java/README.md)
 
-The requirements to follow the exercises in this repository are...
+Both tracks cover identical core concepts and practical applications, differing only in the programming language and SDK utilized.
+You may choose the track that best aligns with your technology stack.
+You may also opt to experience multiple tracks to broaden your understanding.
 
-## Exercises
+## Getting Started
 
-Provide the exercise content here directly in README.md using [markdown](https://guides.github.com/features/mastering-markdown/) and linking to the specific exercise pages, below is an example.
+1. **Clone the Repository**:
+    
+    Clone the repository using your preferred Git client.
+    If you’re using the Git command line interface, run the following command:
+    ```bash
+    git clone https://github.com/SAP-samples/teched2025-AI160.git
+    ```
+2. **Select Your Programming Language**: 
+    - Choose between [JavaScript](exercises/javascript/README.md) or [Java](exercises/java/README.md) by clicking the respective links.
 
-- [Getting Started](exercises/ex0/)
-- [Exercise 1 - First Exercise Description](exercises/ex1/)
-    - [Exercise 1.1 - Exercise 1 Sub Exercise 1 Description](exercises/ex1#exercise-11-sub-exercise-1-description)
-    - [Exercise 1.2 - Exercise 1 Sub Exercise 2 Description](exercises/ex1#exercise-12-sub-exercise-2-description)
-- [Exercise 2 - Second Exercise Description](exercises/ex2/)
-    - [Exercise 2.1 - Exercise 2 Sub Exercise 1 Description](exercises/ex2#exercise-21-sub-exercise-1-description)
-    - [Exercise 2.2 - Exercise 2 Sub Exercise 2 Description](exercises/ex2#exercise-22-sub-exercise-2-description)
+Please note:
 
-  
-**OR** Link to the Tutorial Navigator for example...
+* If you have your own AI Core instances for consuming Generative AI Hub capabilities, you can follow this tutorial using those instances.
+  Please make the following adjustments:
+    * You need to create a deployment for orchestration by referring the [documentation](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/create-deployment-for-orchestration?locale=en-US).
+    * Before beginning the exercises, you’ll need to provide system information.
+    Instead of using the hands-on test system provided for this tutorial, use your own AI Core instance details, such as the AI Core client ID, secret, and authentication URL.
+    * If you’re running your application on BTP rather than locally, the SDKs will automatically retrieve your AI Core instance information from the VCAP_SERVICES environment variable. 
 
-Start the exercises [here](https://developers.sap.com/tutorials/abap-environment-trial-onboarding.html).
 
-**IMPORTANT**
+## Demo Application
 
-Your repo must contain the .reuse and LICENSES folder and the License section below. DO NOT REMOVE the section or folders/files. Also, remove all unused template assets(images, folders, etc) from the exercises folder. 
+An AI-powered Purchase Order (PO) Management Agent that identifies overdue PO items and automates escalation workflows.
+
+### Architecture
+
+The application demonstrates an AI agent workflow that orchestrates multiple specialized tools to process natural language queries about purchase order items.
+Available in both JavaScript ([LangGraph]((https://langchain-ai.github.io/langgraph/))) and Java (Spring AI) implementations.
+
+### Core Integration Points
+
+- **SAP S/4HANA**: Purchase Order API for real-time PO data retrieval and note creation
+- **SAP AI Core Orchestration Service**: Handles LLM invocation, content filtering, and data masking
+- **Agent Framework**: LangGraph (JS) or Spring AI (Java) for workflow orchestration and tool routing
+
+Users interact through a React frontend, submitting natural language queries like "Show overdue PO items for plant DE01".
+The agent intelligently routes through specialized tools — fetching PO data, calculating overdue status, formatting responses, and creating escalation notes.
+
+![alt text](image.png)
 
 ## Contributing
 Please read the [CONTRIBUTING.md](./CONTRIBUTING.md) to understand the contribution guidelines.
