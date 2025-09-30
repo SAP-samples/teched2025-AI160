@@ -1,0 +1,25 @@
+{
+  "name": "purchase-order-mock-server",
+  "version": "1.0.0",
+  "description": "Mock server for SAP Purchase Order service",
+  "main": "src/server.ts",
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/server.ts",
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "generate-data": "tsx src/generation/generate-mock-data.ts"
+  },
+  "engines": {
+    "node": "^22"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "moment": "^2.29.1",
+    "uuid": "^11.1.0",
+    "@sap-cloud-sdk/util": "^4.1.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3"
+  }
+}

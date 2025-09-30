@@ -1,42 +1,147 @@
-# Exercise 2 - Exercise 2 Description
+# Exercise 2 - Implementing Note Creation
 
-In this exercise, we will create...
+In this exercise, you'll create and enable a custom tool that saves data to SAP S/4HANA, completing the end-to-end agent workflow.
+You'll see how agents accept input from the UI and execute write operations to backend systems.
 
-## Exercise 2.1 Sub Exercise 1 Description
+## Step 1: Analyze the Note Creation Tool
 
-After completing these steps you will have created...
+Open [app/agent/src/tools/create-note.ts](../../app/agent/src/tools/create-note.ts) and review the implementation.
 
-1. Click here.
-<br>![](/exercises/ex2/images/02_01_0010.png)
+The `createNoteTool` defines a Zod schema that describes the tool's input parameters to the LLM:
 
-2.	Insert this line of code.
-```abap
-response->set_text( |Hello ABAP World! | ). 
+```typescript
+{
+    name: 'create_note',
+    description: 'Create a note for a specific purchase order item',
+    schema: z.object({
+        purchaseOrder: z.string().meta({ description: 'The purchase order number' }).min(1),
+        purchaseOrderItem: z.string().meta({ description: 'The purchase order item number' }).min(1),
+        noteText: z.string().meta({ description: 'The text content of the note' }).min(1),
+        language: z.string().meta({ description: 'The language of the note. For example: \'DE\'' }).min(2).max(2)
+    })
+}
+```
+The LLM uses these schema descriptions to understand what parameters the tool needs.
+It can automatically determine values like the `language` parameter by detecting the language of the input text (e.g., 'EN' for English, 'DE' for German).
+
+Uncomment the following line in the `createNoteTool()` function body:
+
+```typescript
+return createNote(notesInfo);
 ```
 
+The `createNote()` function is responsible for making the API call to the `A_PurchaseOrderItemNote` entity to create a note in the SAP S/4HANA system.
 
-
-## Exercise 2.2 Sub Exercise 2 Description
-
-After completing these steps you will have...
-
-1.	Enter this code.
-```abap
-DATA(lt_params) = request->get_form_fields(  ).
-READ TABLE lt_params REFERENCE INTO DATA(lr_params) WITH KEY name = 'cmd'.
-  IF sy-subrc = 0.
-    response->set_status( i_code = 200
-                     i_reason = 'Everything is fine').
-    RETURN.
-  ENDIF.
-
+```typescript
+async function createNote(request: CreateNoteRequestParam): Promise<any> {
+    const url = new URL(`${BASE_URL_API_PURCHASEORDER_PROCESS_SRV}A_PurchaseOrderItemNote`);
+    const { purchaseOrder, purchaseOrderItem, noteText, language } = request;
+    const noteData = {
+        PurchaseOrder: purchaseOrder,
+        PurchaseOrderItem: purchaseOrderItem,
+        PlainLongText: noteText,
+        Language: language
+    };
+}
 ```
 
-2.	Click here.
-<br>![](/exercises/ex2/images/02_02_0010.png)
+## Step 2: Add Human Message flowto Create Note
+
+Navigate to the [app/agent/src/po-agent.ts](../../app/agent/src/po-agent.ts) file and examine the `createNote()` function:
+
+```typescript
+export async function createNote(note: any, config: any): Promise<MessageContent | undefined> {
+    const humanMessage = `Please create a note for the following purchase order item:
+Purchase Order: ${note.purchaseOrder}
+Purchase Order Item: ${note.purchaseOrderItem}
+Note Text: ${note.noteText}
+`;
+
+    let response = await app.invoke({ messages: [humanMessage] }, config);
+    return response.messages.at(-1)?.content;
+}
+```
+
+The LLM is invoked with a human message that instructs it to create a note for a specific purchase order item.
+The LLM calls the `create_note` tool with the appropriate arguments.
+
+## Step 3: Enable Note Creation in the Agent
+
+In the `startPurchaseOrderAgent()` function, you'll see the system prompt already includes instructions for note creation:
+
+```markdown
+After drafting the email, check if user asks to create a note for PO items.
+Always use the 'create_note' tool to create note.
+Always confirm successful note creation to the user.
+```
+
+Uncomment the `createNoteTool` in the tools array in `po-agent.ts` to enable the tool for the agent:
+
+```typescript
+const tools: [] = [
+    getPurchaseOrderItemsTool,
+    calculateOverdueTool,
+    formatPurchaseOrdersTool,
+    createNoteTool
+];
+```
+
+## Step 4: Test the Complete Workflow
+
+Save all your changes and wait for the application to restart automatically.
+
+Navigate to http://localhost:3002/ and test the complete flow:
+
+1. Enter `Show me overdue PO items in plant DE01`
+2. Click the email icon for any overdue item
+3. Modify the draft email as needed
+4. Finally, click the **Send** button to create a note
+
+![email popup](./images/email-popup.png)
+
+You should see a success notification confirming the email was sent.
+
+## Step 5: Verify Note Creation in the Logs
+
+Check the terminal logs to see the tool invocation and note creation details:
+
+```bash
+[agent] [2025-09-30T12:55:05.782Z] INFO     (server): Request: POST /api/agent/create-po-item-notes
+[agent] Tool calls: [
+[agent]   {
+[agent]     id: 'call_sAMt8N9I0qEOfrgh9hYuA1Xz',
+[agent]     name: 'create_note',
+[agent]     args: {
+[agent]       purchaseOrder: '4500000005',
+[agent]       purchaseOrderItem: '20',
+[agent]       noteText: 'Subject: Escalation: Overdue Purchase Order 4500000005 - Item 20\n' +
+[agent]         '\n' +
+[agent]         'Dear Administrator,\n' +
+[agent]         '\n' +
+[agent]         'The following purchase order item 20 (PO 4500000005, quantity 88 EA) is overdue for delivery to Distribution Center, Berlin.\n' +
+[agent]         'This delay is impacting operations at plant M204 and may lead to stockouts and order fulfillment delays.\n' +
+[agent]         'Please address this issue promptly.\n' +
+[agent]         '\n' +
+[agent]         'Please contact us via the email info@example.com if urgent.',
+[agent]       language: 'EN'
+[agent]     },
+[agent]     type: 'tool_call'
+[agent]   }
+[agent] ]
+[mock-server] [2025-09-30T12:55:32.275Z] INFO     (server): Request: POST /sap/opu/odata/sap/API_PURCHASEORDER_PROCESS_SRV/A_PurchaseOrderItemNote
+[mock-server] [2025-09-30T12:55:32.340Z] INFO     (purchase-order-api): Created purchase order item note for 4500000005/20
+```
 
 ## Summary
 
-You've now ...
+**Congratulations!**
 
-Continue to - [Exercise 3 - Excercise 3 ](../ex3/README.md)
+Excellent work! You've successfully implemented the complete Purchase Order agent workflow with note creation capabilities.
+Your agent can now:
+
+- Analyze overdue purchase order items
+- Draft escalation emails based on business context
+- Create notes in SAP S/4HANA through tool execution
+- Maintain conversation context across multiple operations
+
+Continue to [Exercise 3 - (Optional) Enhance your agent with orchestration capabilities](../ex3/README.md).

@@ -1,26 +1,83 @@
-# Level 1 Heading
+# Preparation
 
-In this exercise, you will...
+By completing these steps, you will have the Express and React -based  web applications up and running.
 
-## Level 2 Heading
+### Prerequisites:
+- [ ] Node.js (v22) and npm are already installed.
 
-After completing these steps you will have....
+You can verify Node.js and npm installations with the following commands:
 
-1.	Click here.
-<br>![](/exercises/ex0/images/00_00_0010.png)
-
-2.	Insert this code.
-``` abap
- DATA(params) = request->get_form_fields(  ).
- READ TABLE params REFERENCE INTO DATA(param) WITH KEY name = 'cmd'.
-  IF sy-subrc <> 0.
-    response->set_status( i_code = 400
-                     i_reason = 'Bad request').
-    RETURN.
-  ENDIF.
+```shell
+node -v
+npm -v
 ```
 
-## Summary
+### 1. Navigate to the Application Directory:
 
-Now that you have ... 
-Continue to - [Exercise 1 - Exercise 1 Description](../ex1/README.md)
+Assuming you are still in the root directory of the teched2025-AI160 repository, navigate to the app folder:
+
+```bash
+cd exercises/javascript/app
+```
+
+### 2. Install Dependencies:
+
+Install the required dependencies using:
+
+```bash
+npm ci
+```
+
+> [!NOTE]
+> `npm ci` installs dependencies as per `package-lock.json`, ensuring consistency.
+
+
+### 3. Start the Application:
+
+Run the following to start all applications (mock-server, agent, and UI):
+
+```bash
+npm run tutorial
+```
+
+> [!TIP]
+> This command starts the mock-server (port `3000`), agent (port `3001`), and UI (port `3002`) using concurrently.
+
+### 4. Verify the Application is Running:
+
+After a few seconds, you should see log messages similar to:
+
+```bash
+[ui] Local: http://localhost:3002/
+[mock-server] [2025-09-29T14:27:42.575Z] INFO     (server): Mock server started on port 3000
+[agent] [2025-09-29T14:27:42.980Z] INFO     (server): AI Agent server started on port 3001
+```
+
+### 6. Access the Application:
+
+Open your browser and visit http://localhost:3002/.
+You should see the Purchase Order Management interface is loaded.
+
+![Overdue Purchase Order UI](images/po-ui.png)
+
+The agent is not yet configured to process any purchase orders - hence the message "No data available" is shown.
+You'll implement this functionality in the following exercises.
+
+### Troubleshooting:
+
+If you encounter errors, try checking if the respective ports are in use:
+
+   ```shell
+   lsof -i :3000
+   lsof -i :3001
+   lsof -i :3002
+   ```
+
+## Summary 
+
+**Congratulations!**
+
+Your Purchase Order Management application is up and running.
+In the following exercises, you'll implement the core functionality step by step.
+
+Continue to [Exercise 1 - Implementing Overdue PO Items Detection Agent](../ex1/README.md).

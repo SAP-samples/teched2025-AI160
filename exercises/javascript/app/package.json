@@ -1,0 +1,27 @@
+{
+  "name": "purchase-order-app",
+  "version": "1.0.0",
+  "description": "Application for SAP Purchase Order service",
+  "type": "module",
+  "scripts": {
+    "install": "concurrently 'npm i --prefix ./mock-server' 'npm i --prefix ./agent' 'npm i --prefix ./ui' --prefix '[{name}]' --names 'mock-server,agent,ui' --prefix-colors 'blue,green,yellow'",
+    "tutorial": "concurrently 'npm run mock-server' 'npm run agent' 'npm run ui' --prefix '[{name}]' --names 'mock-server,agent,ui' --prefix-colors 'blue,green,yellow'",
+    "mock-server": "npm run start --prefix ./mock-server",
+    "agent": "npm run dev --prefix ./agent",
+    "ui": "npm run start --prefix ./ui"
+  },
+  "engines": {
+    "node": "^22"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "@types/node": "^22.9.0",
+    "tsx": "^4.20.5",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "purchase-order-ai-agent": "file:agent",
+    "purchase-order-mock-server": "file:mock-server",
+    "purchase-order-ui": "file:ui"
+  }
+}

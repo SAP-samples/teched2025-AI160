@@ -44,10 +44,9 @@ The application consists of three main components:
 
 ### Exercises
 
-The exercises demonstrate how to build AI agents using the SAP Cloud SDK for AI and LangGraph, focusing on:
-- Building state-based AI agents with tool calling capabilities
-- Implementing business logic through agent tools
-- Managing agent workflows and state transitions
+The exercises demonstrate how to build AI agents using the SAP Cloud SDK for AI and LangGraph.
+You'll learn to create state-based agents with tool calling capabilities and implement business logic through custom agent tools.
+
 
 - [Preparation](ex0/README.md)
 - [Exercise 1 - Implementing Overdue PO Items Detection Agent](ex1/README.md)
