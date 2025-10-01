@@ -1,0 +1,641 @@
+[ {
+  "PurchaseOrder" : "45165",
+  "PurchaseOrderItem" : "35",
+  "PurchaseOrderItemText" : "Charming Notebook from TechNova Inc.",
+  "Plant" : "DÜS01",
+  "OrderQuantity" : 268.0,
+  "DeliveryAddressCityName" : "Rostock",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45165",
+    "PurchasingDocumentItem" : "35",
+    "ScheduleLineDeliveryDate" : "/Date(1759767306896)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45748",
+  "PurchaseOrderItem" : "75",
+  "PurchaseOrderItemText" : "Fancy Eraser from BlueOrbit Solutions",
+  "Plant" : "MUN04",
+  "OrderQuantity" : 390.0,
+  "DeliveryAddressCityName" : "Düsseldorf",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45748",
+    "PurchasingDocumentItem" : "75",
+    "ScheduleLineDeliveryDate" : "/Date(1759162506897)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45578",
+  "PurchaseOrderItem" : "12",
+  "PurchaseOrderItemText" : "BlueOrbit Solutions's Magnificent Notebook",
+  "Plant" : "MUN03",
+  "OrderQuantity" : 243.0,
+  "DeliveryAddressCityName" : "Dresden",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45578",
+    "PurchasingDocumentItem" : "12",
+    "ScheduleLineDeliveryDate" : "/Date(1758989706897)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45214",
+  "PurchaseOrderItem" : "76",
+  "PurchaseOrderItemText" : "Skyline Dynamics's Wonderful Charging cable",
+  "Plant" : "FRA02",
+  "OrderQuantity" : 750.0,
+  "DeliveryAddressCityName" : "Rostock",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45214",
+    "PurchasingDocumentItem" : "76",
+    "ScheduleLineDeliveryDate" : "/Date(1760458506897)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45779",
+  "PurchaseOrderItem" : "73",
+  "PurchaseOrderItemText" : "Wonderful Mug from BlueOrbit Solutions",
+  "Plant" : "ROS01",
+  "OrderQuantity" : 281.0,
+  "DeliveryAddressCityName" : "Frankfurt",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45779",
+    "PurchasingDocumentItem" : "73",
+    "ScheduleLineDeliveryDate" : "/Date(1758816906897)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45780",
+  "PurchaseOrderItem" : "60",
+  "PurchaseOrderItemText" : "Brilliant Pencil from Skyline Dynamics",
+  "Plant" : "COL03",
+  "OrderQuantity" : 836.0,
+  "DeliveryAddressCityName" : "Düsseldorf",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45780",
+    "PurchasingDocumentItem" : "60",
+    "ScheduleLineDeliveryDate" : "/Date(1756916106897)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45645",
+  "PurchaseOrderItem" : "38",
+  "PurchaseOrderItemText" : "NextGen Ventures's Fabulous Charging cable",
+  "Plant" : "BER03",
+  "OrderQuantity" : 256.0,
+  "DeliveryAddressCityName" : "Cologne",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45645",
+    "PurchasingDocumentItem" : "38",
+    "ScheduleLineDeliveryDate" : "/Date(1758039306897)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45705",
+  "PurchaseOrderItem" : "71",
+  "PurchaseOrderItemText" : "QuantumCore Systems's Elegant Paper clips",
+  "Plant" : "LEI02",
+  "OrderQuantity" : 501.0,
+  "DeliveryAddressCityName" : "Hamburg",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45705",
+    "PurchasingDocumentItem" : "71",
+    "ScheduleLineDeliveryDate" : "/Date(1759508106897)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45034",
+  "PurchaseOrderItem" : "77",
+  "PurchaseOrderItemText" : "TechNova Inc.'s Brilliant Notebook",
+  "Plant" : "BER01",
+  "OrderQuantity" : 497.0,
+  "DeliveryAddressCityName" : "Leipzig",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45034",
+    "PurchasingDocumentItem" : "77",
+    "ScheduleLineDeliveryDate" : "/Date(1760112906897)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45030",
+  "PurchaseOrderItem" : "31",
+  "PurchaseOrderItemText" : "Fancy Pencil from QuantumCore Systems",
+  "Plant" : "DRE04",
+  "OrderQuantity" : 731.0,
+  "DeliveryAddressCityName" : "Rostock",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45030",
+    "PurchasingDocumentItem" : "31",
+    "ScheduleLineDeliveryDate" : "/Date(1759853706897)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45772",
+  "PurchaseOrderItem" : "45",
+  "PurchaseOrderItemText" : "Brilliant Stapler from BlueOrbit Solutions",
+  "Plant" : "BER04",
+  "OrderQuantity" : 661.0,
+  "DeliveryAddressCityName" : "Berlin",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45772",
+    "PurchasingDocumentItem" : "45",
+    "ScheduleLineDeliveryDate" : "/Date(1756138506897)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45065",
+  "PurchaseOrderItem" : "87",
+  "PurchaseOrderItemText" : "Fancy Scissors from FusionWorks Ltd.",
+  "Plant" : "HAM03",
+  "OrderQuantity" : 138.0,
+  "DeliveryAddressCityName" : "Düsseldorf",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45065",
+    "PurchasingDocumentItem" : "87",
+    "ScheduleLineDeliveryDate" : "/Date(1756397706897)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45679",
+  "PurchaseOrderItem" : "97",
+  "PurchaseOrderItemText" : "FusionWorks Ltd.'s Graceful Charging cable",
+  "Plant" : "FRA01",
+  "OrderQuantity" : 339.0,
+  "DeliveryAddressCityName" : "Hamburg",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45679",
+    "PurchasingDocumentItem" : "97",
+    "ScheduleLineDeliveryDate" : "/Date(1757348106897)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45630",
+  "PurchaseOrderItem" : "11",
+  "PurchaseOrderItemText" : "GreenLeaf Enterprises's Brilliant Mug",
+  "Plant" : "LEI01",
+  "OrderQuantity" : 310.0,
+  "DeliveryAddressCityName" : "Leipzig",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45630",
+    "PurchasingDocumentItem" : "11",
+    "ScheduleLineDeliveryDate" : "/Date(1757175306897)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45356",
+  "PurchaseOrderItem" : "88",
+  "PurchaseOrderItemText" : "Wonderful Stapler from TechNova Inc.",
+  "Plant" : "LEI02",
+  "OrderQuantity" : 936.0,
+  "DeliveryAddressCityName" : "Cologne",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45356",
+    "PurchasingDocumentItem" : "88",
+    "ScheduleLineDeliveryDate" : "/Date(1755879306897)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45406",
+  "PurchaseOrderItem" : "79",
+  "PurchaseOrderItemText" : "Amazing Charging cable from NextGen Ventures",
+  "Plant" : "MUN01",
+  "OrderQuantity" : 185.0,
+  "DeliveryAddressCityName" : "Leipzig",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45406",
+    "PurchasingDocumentItem" : "79",
+    "ScheduleLineDeliveryDate" : "/Date(1757434506898)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45758",
+  "PurchaseOrderItem" : "62",
+  "PurchaseOrderItemText" : "NextGen Ventures's Magnificent Stapler",
+  "Plant" : "LEI03",
+  "OrderQuantity" : 655.0,
+  "DeliveryAddressCityName" : "Berlin",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45758",
+    "PurchasingDocumentItem" : "62",
+    "ScheduleLineDeliveryDate" : "/Date(1758816906898)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45027",
+  "PurchaseOrderItem" : "23",
+  "PurchaseOrderItemText" : "TechNova Inc.'s Graceful Notebook",
+  "Plant" : "COL02",
+  "OrderQuantity" : 896.0,
+  "DeliveryAddressCityName" : "Frankfurt",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45027",
+    "PurchasingDocumentItem" : "23",
+    "ScheduleLineDeliveryDate" : "/Date(1756397706898)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45779",
+  "PurchaseOrderItem" : "21",
+  "PurchaseOrderItemText" : "Delightful Mug from BlueOrbit Solutions",
+  "Plant" : "COL02",
+  "OrderQuantity" : 618.0,
+  "DeliveryAddressCityName" : "Dresden",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45779",
+    "PurchasingDocumentItem" : "21",
+    "ScheduleLineDeliveryDate" : "/Date(1758730506898)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45782",
+  "PurchaseOrderItem" : "63",
+  "PurchaseOrderItemText" : "Magnificent Eraser from GreenLeaf Enterprises",
+  "Plant" : "DÜS01",
+  "OrderQuantity" : 755.0,
+  "DeliveryAddressCityName" : "Cologne",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45782",
+    "PurchasingDocumentItem" : "63",
+    "ScheduleLineDeliveryDate" : "/Date(1756138506898)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45351",
+  "PurchaseOrderItem" : "58",
+  "PurchaseOrderItemText" : "QuantumCore Systems's Elegant Mug",
+  "Plant" : "COL03",
+  "OrderQuantity" : 453.0,
+  "DeliveryAddressCityName" : "Stuttgart",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45351",
+    "PurchasingDocumentItem" : "58",
+    "ScheduleLineDeliveryDate" : "/Date(1755620106898)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45056",
+  "PurchaseOrderItem" : "38",
+  "PurchaseOrderItemText" : "BrightPath Innovations's Fabulous Pencil",
+  "Plant" : "COL04",
+  "OrderQuantity" : 330.0,
+  "DeliveryAddressCityName" : "Leipzig",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45056",
+    "PurchasingDocumentItem" : "38",
+    "ScheduleLineDeliveryDate" : "/Date(1757002506898)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45805",
+  "PurchaseOrderItem" : "75",
+  "PurchaseOrderItemText" : "Graceful Charging cable from GreenLeaf Enterprises",
+  "Plant" : "STU04",
+  "OrderQuantity" : 901.0,
+  "DeliveryAddressCityName" : "Düsseldorf",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45805",
+    "PurchasingDocumentItem" : "75",
+    "ScheduleLineDeliveryDate" : "/Date(1759940106898)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45856",
+  "PurchaseOrderItem" : "39",
+  "PurchaseOrderItemText" : "Charming Pencil from Apex Global",
+  "Plant" : "DÜS02",
+  "OrderQuantity" : 779.0,
+  "DeliveryAddressCityName" : "Rostock",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45856",
+    "PurchasingDocumentItem" : "39",
+    "ScheduleLineDeliveryDate" : "/Date(1757261706898)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45490",
+  "PurchaseOrderItem" : "34",
+  "PurchaseOrderItemText" : "NextGen Ventures's Elegant Paper clips",
+  "Plant" : "MUN01",
+  "OrderQuantity" : 239.0,
+  "DeliveryAddressCityName" : "Düsseldorf",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45490",
+    "PurchasingDocumentItem" : "34",
+    "ScheduleLineDeliveryDate" : "/Date(1757520906898)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45081",
+  "PurchaseOrderItem" : "56",
+  "PurchaseOrderItemText" : "Magnificent Charging cable from Pioneer Edge",
+  "Plant" : "MUN02",
+  "OrderQuantity" : 886.0,
+  "DeliveryAddressCityName" : "Stuttgart",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45081",
+    "PurchasingDocumentItem" : "56",
+    "ScheduleLineDeliveryDate" : "/Date(1757175306898)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45892",
+  "PurchaseOrderItem" : "24",
+  "PurchaseOrderItemText" : "Apex Global's Delightful Eraser",
+  "Plant" : "DRE03",
+  "OrderQuantity" : 598.0,
+  "DeliveryAddressCityName" : "Hamburg",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45892",
+    "PurchasingDocumentItem" : "24",
+    "ScheduleLineDeliveryDate" : "/Date(1760026506898)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45370",
+  "PurchaseOrderItem" : "24",
+  "PurchaseOrderItemText" : "Delightful Mug from BlueOrbit Solutions",
+  "Plant" : "STU02",
+  "OrderQuantity" : 482.0,
+  "DeliveryAddressCityName" : "Hamburg",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45370",
+    "PurchasingDocumentItem" : "24",
+    "ScheduleLineDeliveryDate" : "/Date(1758298506898)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45753",
+  "PurchaseOrderItem" : "34",
+  "PurchaseOrderItemText" : "Fabulous Eraser from Apex Global",
+  "Plant" : "STU02",
+  "OrderQuantity" : 470.0,
+  "DeliveryAddressCityName" : "Hamburg",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45753",
+    "PurchasingDocumentItem" : "34",
+    "ScheduleLineDeliveryDate" : "/Date(1759335306898)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45676",
+  "PurchaseOrderItem" : "69",
+  "PurchaseOrderItemText" : "FusionWorks Ltd.'s Fabulous Scissors",
+  "Plant" : "ROS02",
+  "OrderQuantity" : 178.0,
+  "DeliveryAddressCityName" : "Hamburg",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45676",
+    "PurchasingDocumentItem" : "69",
+    "ScheduleLineDeliveryDate" : "/Date(1757607306898)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45938",
+  "PurchaseOrderItem" : "33",
+  "PurchaseOrderItemText" : "FusionWorks Ltd.'s Brilliant Pencil",
+  "Plant" : "DRE02",
+  "OrderQuantity" : 965.0,
+  "DeliveryAddressCityName" : "Munich",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45938",
+    "PurchasingDocumentItem" : "33",
+    "ScheduleLineDeliveryDate" : "/Date(1760458506898)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45921",
+  "PurchaseOrderItem" : "38",
+  "PurchaseOrderItemText" : "Amazing Paper clips from QuantumCore Systems",
+  "Plant" : "STU01",
+  "OrderQuantity" : 597.0,
+  "DeliveryAddressCityName" : "Rostock",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45921",
+    "PurchasingDocumentItem" : "38",
+    "ScheduleLineDeliveryDate" : "/Date(1756656906898)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45036",
+  "PurchaseOrderItem" : "24",
+  "PurchaseOrderItemText" : "Delightful Eraser from Skyline Dynamics",
+  "Plant" : "BER04",
+  "OrderQuantity" : 629.0,
+  "DeliveryAddressCityName" : "Stuttgart",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45036",
+    "PurchasingDocumentItem" : "24",
+    "ScheduleLineDeliveryDate" : "/Date(1760372106898)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45361",
+  "PurchaseOrderItem" : "61",
+  "PurchaseOrderItemText" : "FusionWorks Ltd.'s Graceful Charging cable",
+  "Plant" : "BER03",
+  "OrderQuantity" : 550.0,
+  "DeliveryAddressCityName" : "Hamburg",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45361",
+    "PurchasingDocumentItem" : "61",
+    "ScheduleLineDeliveryDate" : "/Date(1755706506898)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45954",
+  "PurchaseOrderItem" : "78",
+  "PurchaseOrderItemText" : "Skyline Dynamics's Elegant Eraser",
+  "Plant" : "COL02",
+  "OrderQuantity" : 887.0,
+  "DeliveryAddressCityName" : "Rostock",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45954",
+    "PurchasingDocumentItem" : "78",
+    "ScheduleLineDeliveryDate" : "/Date(1756397706898)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45531",
+  "PurchaseOrderItem" : "98",
+  "PurchaseOrderItemText" : "TechNova Inc.'s Charming Scissors",
+  "Plant" : "FRA01",
+  "OrderQuantity" : 813.0,
+  "DeliveryAddressCityName" : "Stuttgart",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45531",
+    "PurchasingDocumentItem" : "98",
+    "ScheduleLineDeliveryDate" : "/Date(1756484106898)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45993",
+  "PurchaseOrderItem" : "72",
+  "PurchaseOrderItemText" : "Magnificent Notebook from Pioneer Edge",
+  "Plant" : "STU03",
+  "OrderQuantity" : 402.0,
+  "DeliveryAddressCityName" : "Düsseldorf",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45993",
+    "PurchasingDocumentItem" : "72",
+    "ScheduleLineDeliveryDate" : "/Date(1757866506898)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45887",
+  "PurchaseOrderItem" : "81",
+  "PurchaseOrderItemText" : "Magnificent Paper clips from BlueOrbit Solutions",
+  "Plant" : "HAM03",
+  "OrderQuantity" : 466.0,
+  "DeliveryAddressCityName" : "Cologne",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45887",
+    "PurchasingDocumentItem" : "81",
+    "ScheduleLineDeliveryDate" : "/Date(1757088906898)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45153",
+  "PurchaseOrderItem" : "68",
+  "PurchaseOrderItemText" : "Delightful Eraser from FusionWorks Ltd.",
+  "Plant" : "STU03",
+  "OrderQuantity" : 932.0,
+  "DeliveryAddressCityName" : "Rostock",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45153",
+    "PurchasingDocumentItem" : "68",
+    "ScheduleLineDeliveryDate" : "/Date(1760372106898)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+}, {
+  "PurchaseOrder" : "45523",
+  "PurchaseOrderItem" : "92",
+  "PurchaseOrderItemText" : "Wonderful Stapler from QuantumCore Systems",
+  "Plant" : "COL02",
+  "OrderQuantity" : 963.0,
+  "DeliveryAddressCityName" : "Rostock",
+  "to_AccountAssignment" : [ ],
+  "to_PurchaseOrderItemNote" : [ ],
+  "to_PurchaseOrderPricingElement" : [ ],
+  "to_ScheduleLine" : [ {
+    "PurchasingDocument" : "45523",
+    "PurchasingDocumentItem" : "92",
+    "ScheduleLineDeliveryDate" : "/Date(1759508106898)/",
+    "to_SubcontractingComponent" : [ ]
+  } ]
+} ]

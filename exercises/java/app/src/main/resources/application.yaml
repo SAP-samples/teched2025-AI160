@@ -1,0 +1,10 @@
+logging:
+  level:
+    root: INFO
+    org.apache.hc.client5.http.wire: DEBUG
+    com.sap.demo: DEBUG
+
+app:
+  data:
+    generate-on-startup: false
+    number-of-items: 40

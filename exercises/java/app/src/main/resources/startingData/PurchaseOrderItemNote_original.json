@@ -1,0 +1,156 @@
+[
+  {
+    "super": {
+      "customFields": {},
+      "changedOriginalFields": {}
+    },
+    "purchaseOrder": "4500000067",
+    "purchaseOrderItem": "10",
+    "textObjectType": "F03",
+    "language": "EN",
+    "plainLongText": "SC01-ROH-11 Non Chargeable"
+  },
+  {
+    "super": {
+      "customFields": {},
+      "changedOriginalFields": {}
+    },
+    "purchaseOrder": "4500000067",
+    "purchaseOrderItem": "20",
+    "textObjectType": "F03",
+    "language": "EN",
+    "plainLongText": "SC01-ROH-01 Chargeable"
+  },
+  {
+    "super": {
+      "customFields": {},
+      "changedOriginalFields": {}
+    },
+    "purchaseOrder": "4500000069",
+    "purchaseOrderItem": "10",
+    "textObjectType": "F03",
+    "language": "EN",
+    "plainLongText": "SC01-ROH-01 Chargeable"
+  },
+  {
+    "super": {
+      "customFields": {},
+      "changedOriginalFields": {}
+    },
+    "purchaseOrder": "4500000069",
+    "purchaseOrderItem": "20",
+    "textObjectType": "F03",
+    "language": "EN",
+    "plainLongText": "SC01-ROH-11 Non Chargeable"
+  },
+  {
+    "super": {
+      "customFields": {},
+      "changedOriginalFields": {}
+    },
+    "purchaseOrder": "4500000113",
+    "purchaseOrderItem": "10",
+    "textObjectType": "F03",
+    "language": "EN",
+    "plainLongText": "SC01-HALB-01 Subcontracted Product"
+  },
+  {
+    "super": {
+      "customFields": {},
+      "changedOriginalFields": {}
+    },
+    "purchaseOrder": "4500000143",
+    "purchaseOrderItem": "10",
+    "textObjectType": "F03",
+    "language": "JA",
+    "plainLongText": "SC01-ROH-03 Chargeable (3)"
+  },
+  {
+    "super": {
+      "customFields": {},
+      "changedOriginalFields": {}
+    },
+    "purchaseOrder": "4500000143",
+    "purchaseOrderItem": "20",
+    "textObjectType": "F03",
+    "language": "JA",
+    "plainLongText": "SC01-ROH-13 Non Chargeable (3)"
+  },
+  {
+    "super": {
+      "customFields": {},
+      "changedOriginalFields": {}
+    },
+    "purchaseOrder": "4500000144",
+    "purchaseOrderItem": "10",
+    "textObjectType": "F03",
+    "language": "JA",
+    "plainLongText": "Subcontracted Product (3)"
+  },
+  {
+    "super": {
+      "customFields": {},
+      "changedOriginalFields": {}
+    },
+    "purchaseOrder": "4500000145",
+    "purchaseOrderItem": "10",
+    "textObjectType": "F03",
+    "language": "JA",
+    "plainLongText": "Subcontracted Product (3)"
+  },
+  {
+    "super": {
+      "customFields": {},
+      "changedOriginalFields": {}
+    },
+    "purchaseOrder": "4500000209",
+    "purchaseOrderItem": "10",
+    "textObjectType": "F03",
+    "language": "EN",
+    "plainLongText": "Schraube"
+  },
+  {
+    "super": {
+      "customFields": {},
+      "changedOriginalFields": {}
+    },
+    "purchaseOrder": "4500000256",
+    "purchaseOrderItem": "10",
+    "textObjectType": "F03",
+    "language": "EN",
+    "plainLongText": "soybean"
+  },
+  {
+    "super": {
+      "customFields": {},
+      "changedOriginalFields": {}
+    },
+    "purchaseOrder": "4500000257",
+    "purchaseOrderItem": "10",
+    "textObjectType": "F03",
+    "language": "EN",
+    "plainLongText": "soybean"
+  },
+  {
+    "super": {
+      "customFields": {},
+      "changedOriginalFields": {}
+    },
+    "purchaseOrder": "4500000262",
+    "purchaseOrderItem": "10",
+    "textObjectType": "F03",
+    "language": "EN",
+    "plainLongText": "soybean"
+  },
+  {
+    "super": {
+      "customFields": {},
+      "changedOriginalFields": {}
+    },
+    "purchaseOrder": "4500000318",
+    "purchaseOrderItem": "10",
+    "textObjectType": "F03",
+    "language": "EN",
+    "plainLongText": "Test"
+  }
+]
