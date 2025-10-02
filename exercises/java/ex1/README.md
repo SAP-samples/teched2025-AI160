@@ -15,7 +15,7 @@ If you have any trouble solving the exercise, you can find the code to solve it 
 
 ## Step 1: Set up connection to AI Core
 
-Open [demo/GetPurchaseOrderTask.java](../../src/main/java/com/sap/demo/GetPurchaseOrdersTask.java) and locate the `getPurchaseOrderItems` method.
+Open [demo/GetPurchaseOrderTask.java](../app/src/main/java/com/sap/demo/GetPurchaseOrdersTask.java) and locate the `getPurchaseOrderItems` method.
 Right now, it simply returns all PurchaseOrderItems through directly using the `ReadPurchaseOrderTool`.
 But before we change this, we first need to set up the connection to AI Core.
 

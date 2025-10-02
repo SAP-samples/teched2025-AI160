@@ -17,7 +17,7 @@ If you have any trouble solving the exercise, you can find the code to solve it 
 
 ## Step 1: Create the instructions for the AI Agent
 
-Open [demo/EscalateTask.java](../../src/main/java/com/sap/demo/EscalateTask.java) and locate the `resolveEscalation` method.
+Open [demo/EscalateTask.java](../app/src/main/java/com/sap/demo/EscalateTask.java) and locate the `resolveEscalation` method.
 This  code is invoked if the user clicks on the "Escalate" button next to an overdue PO item in the table shown in the UI.
 The returned object is of type `EscalationOutcome`, which is record class storing the necessary information of the escalation.
 Right now, the `resolveEscalation` method simply returns an `EscalationOutcome` object with the text "Done".
@@ -147,8 +147,8 @@ Navigate to http://localhost:8080/ and test the code you have written:
 3. Locate an overdue PO item. (If there is none present, change the user query and click **Execute Query** again.)
 4. Click **Escalate**.
 
-You should get prompted by the app with an e-mail draft the AI agent provides as an escalation note to the supplier.
-You can change the draft and once you are satisfied with it click **Okay** to let the AI agent handle the sending of the mail.
+You should get prompted by the app with a prompt regarding an e-mail draft.
+You can answer the AI and change the draft. Once you are satisfied with it click **Okay** to let the AI agent handle the sending of the mail.
 The AI agent will also write a note to this PO item that an escalation has happened.
 This will write the note into the underlying S/4 database.
 
