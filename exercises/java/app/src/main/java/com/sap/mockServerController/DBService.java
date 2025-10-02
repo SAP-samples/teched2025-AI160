@@ -26,7 +26,7 @@ class DBService {
     purchaseOrderItems = new HashMap<>();
     List<PurchaseOrderItem> list =
         JACKSON.readValue(
-            new File("src/main/resources/PurchaseOrderItem_example.json"),
+            new File("exercises/java/app/src/main/resources/PurchaseOrderItem_example.json"),
             new TypeReference<>() {});
     for (PurchaseOrderItem item : list) {
       ID id = new ID(item.getPurchaseOrder(), item.getPurchaseOrderItem());
