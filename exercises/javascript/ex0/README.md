@@ -40,7 +40,7 @@ Run the following to start all applications (mock-server, agent, and UI):
 npm run tutorial
 ```
 
-> [!TIP]
+> [!NOTE]
 > This command starts the mock-server (port `3000`), agent (port `3001`), and UI (port `3002`) using concurrently.
 
 ### 4. Verify the Application is Running:
@@ -77,7 +77,7 @@ If you encounter errors, try checking if the respective ports are in use:
 
 **Congratulations!**
 
-Your Purchase Order Management application is up and running.
+Your application is up and running.
 In the following exercises, you'll implement the core functionality step by step.
 
-Continue to [Exercise 1 - Implementing Overdue PO Items Detection Agent](../ex1/README.md).
+Continue to [Exercise 1 - Working with Overdue PO Items: Configure Tools and LangGraph Agent](../ex1/README.md).
