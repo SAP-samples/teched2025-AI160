@@ -26,7 +26,7 @@ const tools: any[] = [
 // Create a ToolNode with the defined tools
 const toolNode = new ToolNode(tools);
 
-// Create a model
+// Create a model and give it access to the tools
 // const model = new OrchestrationClient({
 //     promptTemplating: {
 //         model: {
@@ -45,6 +45,7 @@ async function shouldContinueAgent({ messages }: typeof MessagesAnnotation.State
     return lastMessage.tool_calls?.length ? 'tools' : END;
 }
 
+// Define the function that calls the model
 async function callModel({ messages }: typeof MessagesAnnotation.State) {
     // const response = await modelWithTools.invoke(messages);
     // return { messages: [response] };
@@ -55,7 +56,7 @@ const workflow = new StateGraph(MessagesAnnotation)
     .addNode('tools', toolNode)
     .addConditionalEdges('agent', shouldContinueAgent, ['tools', END])
     .addEdge('tools', 'agent')
-    .addEdge(START, 'agent');
+    .addEdge(START, 'agent'); // START is a special name for the entrypoint
 
 const memory = new MemorySaver();
 const app = workflow.compile({ checkpointer: memory });
@@ -121,6 +122,7 @@ Always confirm successful note creation to the user.
         )
     ];
 
+    // Use the agent
     let response = await app.invoke({ messages: initMessages }, config);
     return response.messages.at(-1)?.content;
 }

@@ -1,11 +1,13 @@
-# Exercise 2 - Implementing Note Creation
+# Exercise 2 - Escalating overdue Items: Writing Data to S/4
 
-In this exercise, you'll create and enable a custom tool that saves data to SAP S/4HANA, completing the end-to-end agent workflow.
-You'll see how agents accept input from the UI and execute write operations to backend systems.
+In this exercise, you'll enable the AI agent to resolve a business escalation in an agentic way by creating a custom tool that writes data into SAP S/4HANA, completing the end-to-end workflow.
+
+To make this work, you will have to first conclude [Exercise 1](../ex1/README.md).
+If you haven't done so, please finish that exercise first.
 
 ## Step 1: Analyze the Note Creation Tool
 
-Open [app/agent/src/tools/create-note.ts](../../app/agent/src/tools/create-note.ts) and review the implementation.
+Open [app/agent/src/tools/create-note.ts](../../javascript/app/agent/src/tools/create-note.ts) and review the implementation.
 
 The `createNoteTool` defines a Zod schema that describes the tool's input parameters to the LLM:
 
@@ -47,7 +49,7 @@ async function createNote(request: CreateNoteRequestParam): Promise<any> {
 
 ## Step 2: Add Human Message flowto Create Note
 
-Navigate to the [app/agent/src/po-agent.ts](../../app/agent/src/po-agent.ts) file and examine the `createNote()` function:
+Navigate to the [app/agent/src/po-agent.ts](../../javascript/app/agent/src/po-agent.ts) file and examine the `createNote()` function:
 
 ```typescript
 export async function createNote(note: any, config: any): Promise<MessageContent | undefined> {
@@ -93,11 +95,9 @@ Save all your changes and wait for the application to restart automatically.
 Navigate to http://localhost:3002/ and test the complete flow:
 
 1. Enter `Show me overdue PO items in plant DE01`
-2. Click the email icon for any overdue item
+2. Click the email icon for an overdue item
 3. Modify the draft email as needed
 4. Finally, click the **Send** button to create a note
-
-![email popup](./images/email-popup.png)
 
 You should see a success notification confirming the email was sent.
 
@@ -136,12 +136,10 @@ Check the terminal logs to see the tool invocation and note creation details:
 
 **Congratulations!**
 
-Excellent work! You've successfully implemented the complete Purchase Order agent workflow with note creation capabilities.
-Your agent can now:
+You have successfully built an AI agent that uses multiple tools to solve a complex business task with a *human-in-the-loop* workflow.
+Your agent is able to interact with the user and write data to an S/4HANA system.
 
-- Analyze overdue purchase order items
-- Draft escalation emails based on business context
-- Create notes in SAP S/4HANA through tool execution
-- Maintain conversation context across multiple operations
+This is the end of the main part of the workshop.
+There is *bonus* third exercise, where we will use features from the AI SDK and AI Core's Orchestration modules to enhance the AI agent.
 
-Continue to [Exercise 3 - (Optional) Enhance your agent with orchestration capabilities](../ex3/README.md).
+Continue to [Exercise 3 - (Optional) Harmonization, Masking, and Prompt Shield](../ex3/README.md).

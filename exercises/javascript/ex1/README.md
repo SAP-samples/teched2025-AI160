@@ -1,12 +1,12 @@
-# Exercise 1 - Working with PO Items: Data Fetching and Overdue Analysis
+# Exercise 1 - Working with Overdue PO Items: Configure Tools and LangGraph Agent
 
 In this exercise, you will implement an AI agent that works with Purchase Order (PO) API using specialized tools.
-You'll learn how to build agents with SAP Cloud SDK for AI (`@sap-ai-sdk/langchain`) and LangGraph.
+You'll learn how to build agents with [SAP Cloud SDK for AI(JavaScript)](https://github.com/SAP/ai-sdk-js) (`@sap-ai-sdk/langchain`) and [LangGraph](https://langchain-ai.github.io/langgraphjs/).
 
 ## Overview
 
-This exercise demonstrates how to build an AI agent using SAP Cloud SDK for AI together with LangGraph.
-The agent will have access to the following tools:
+In this task, you will configure an AI agent to fetch PO items from an S/4HANA system and analyze which items are overdue.
+For this, you will enable the following tools:
 
 1. `getPurchaseOrderItemsTool` - Fetches PO items from an S/4HANA system
 2. `calculateOverdueTool` - Calculates if delivery dates are overdue
@@ -14,9 +14,9 @@ The agent will have access to the following tools:
 
 ## Step 1: Understanding the Agent's Current State
 
-Open [app/agent/src/po-agent.ts](../../app/agent/src/po-agent.ts) and examine the system prompt in the `startPurchaseOrderAgent()` function.
+Open [app/agent/src/po-agent.ts](../../javascript/app/agent/src/po-agent.ts) and examine the system prompt in the `startPurchaseOrderAgent()` function.
 
-The system prompt defines the agent's core capabilities and workflow:
+The system prompt defines the agent's core capability:
 
 ```markdown
 You are an assistant for identifying overdue Purchase Order (PO) items and managing escalations.
@@ -42,9 +42,9 @@ Always call the 'format_response_purchase_orders' tool to format PO items into a
 ```
 
 The prompt outlines a multi-step workflow that requires multiple tools working together.
-The agent needs to fetch data, perform calculations, apply business logic, and format results.
-However, these tools are not available to the model yet.
+Based on user query, the agent needs to fetch data, apply business logic, and format results.
 
+However, these tools are not available to the model yet.
 Notice that the tools array is empty:
 
 ```typescript
@@ -61,11 +61,12 @@ const tools: [] = [
 Before enabling the tools, let's understand their implementation.
 
 ### 1. **Get Purchase Order Items**
-Open [app/agent/src/tools/get-purchase-order-item.ts](../../app/agent/src/tools/get-purchase-order-item.ts) and study the implementation.
-This tool is designed to fetch PO items from the SAP S/4 HANA server with filtering capabilities for plant, city, and country.
-The `fetchPurchaseOrderItems()` function handles OData queries and returns PO items data including delivery schedules and notes.
+Open [app/agent/src/tools/get-purchase-order-item.ts](../../javascript/app/agent/src/tools/get-purchase-order-item.ts) and study the implementation.
+The `getPurchaseOrderItemsTool` tool is designed to fetch Purchase Order items from the SAP S/4HANA database and has filtering capabilities for plant, city, and country.
 
-Type or uncomment the following code within the `getPurchaseOrderItemsTool()` function body:
+The underlying `fetchPurchaseOrderItems()` function called by the tool handles OData queries and returns data including delivery schedules and notes.
+
+Type or uncomment the following code within the `getPurchaseOrderItemsTool()` function body and save the file:
 
 ```typescript
 async ({
@@ -83,18 +84,19 @@ async ({
 
 ### 2. **Calculate Overdue Status**
 
-Open [app/agent/src/tools/calculate-overdue.ts](../../app/agent/src/tools/calculate-overdue.ts) and examine the tool logic.
+Next, open [app/agent/src/tools/calculate-overdue.ts](../../app/agent/src/tools/calculate-overdue.ts) and examine the tool logic.
 
 This utility tool processes SAP timestamp format `/Date(1234567890123)/` and compares delivery dates with current time.
 It returns millisecond difference where positive values indicate future dates (not overdue) and negative values indicate past dates (overdue).
 
 ### 3. **Format Purchase Orders**
 
-Open [app/agent/src/tools/format-response.ts](../../app/agent/src/tools/format-response.ts) and review the formatting logic.
+Open [app/agent/src/tools/format-response.ts](../../javascript/app/agent/src/tools/format-response.ts) and review the formatting logic.
 This tool takes a list of PO items and formats them into a structure expected by the frontend.
 
+
 Now enable the required tools in the Agent.
-In the [app/agent/src/po-agent.ts](../../app/agent/src/po-agent.ts), navigate to the tools array and add the three tools needed for this exercise:
+In the [app/agent/src/po-agent.ts](../../javascript/app/agent/src/po-agent.ts), navigate to the tools array and add the three tools needed for this exercise:
 
 ```typescript
 const tools = [
@@ -109,6 +111,7 @@ const tools = [
 
 ## Step 3: Initialize the Orchestration LangChain Client
 
+You need to instantiate the chat model to be able to connect with AI Core and get access to the deployed `gpt-5` model. 
 Type or uncomment the following code snippet:
 
 ```typescript
@@ -123,9 +126,10 @@ const model = new OrchestrationClient({
 const modelWithTools = model.bindTools(tools);
 ```
 
-This initializes the orchestration client with the `gpt-5` model and makes the defined tools available to the model.
+Calling `.bindTools(tools)` makes sure the model knows that it has these tools available to call. 
 
-Next, navigate to the `callModel()` function and update it to use the `modelWithTools`:
+Next, define the function that calls this model.
+Navigate to the `callModel()` function and update it to use the `modelWithTools` instance:
 
 ```typescript
 async function callModel({ messages }: typeof MessagesAnnotation.State) {
@@ -134,9 +138,29 @@ async function callModel({ messages }: typeof MessagesAnnotation.State) {
 }
 ```
 
-This change ensures that the model can invoke the tools during its processing.
 
-## Step 4: Test the Complete Workflow
+## Step 4: Bring It All Together
+
+Now that you have enabled the tools and configured the model, let's look at how LangGraph ties them together.
+
+```typescript
+const workflow = new StateGraph(MessagesAnnotation)
+    .addNode('agent', callModel)
+    .addNode('tools', toolNode)
+    .addConditionalEdges('agent', shouldContinueAgent, ['tools', END])
+    .addEdge('tools', 'agent')
+    .addEdge(START, 'agent'); 
+```
+
+This graph shows how the workflow moves between the `agent` (model) and its `tools`.
+The entrypoint is the `agent`, linked from the special `START` node.
+The `agent` generates a response, then `shouldContinueAgent()` function decides whether to call `tools` or `END` the process.
+If tools are called, they run their task and return control to the `agent` to decide what to do next.
+When the workflow reaches `END`, the final LLM response is returned.
+
+![Agent State Graph](./images/graph-state.png)
+
+## Step 5: Test the Complete Workflow
 
 Save your changes and wait for the application to restart automatically.
 
@@ -150,38 +174,44 @@ You should see the table populate with overdue PO items from plant `DE01`.
 ![UI](./images/po-ui.png)
 
 Click on the email icon to view the escalation email draft generated by the LLM.
+It will read something like this:
 
-![email popup](./images/email-popup.png)
+```plaintext
+Subject: Escalation: Overdue Purchase Order 4500000002 - Item 20
+
+Dear Administrator,
+
+The following purchase order item 20 is overdue for delivery.
+Quantity: 86 CV.
+Delivery Address: Storage Facility, Cologne (Plant DE01).
+This delay is impacting downstream operations and replenishment plans.
+Please address this issue promptly.
+
+Please contact us via the email info@example.com if urgent.
+```
 
 PO items without existing notes will display a **Send** button, but it won't work yet since the `createNoteTool` isn't enabled.
 You'll implement note creation in the next exercise.
 
-## Step 5: Understanding the Agent Workflow
+## Step 6: Understanding the Agent Workflow
 
-The AI agent uses LangGraph's state-based workflow to orchestrate multiple tool.
-The agent operates as a graph where each node represents either the LLM or a tool execution step.
-
-![Agent State Graph](./images/graph-state.png)
-
-### How the Agent Works:
-
-1. **Agent Node**: The LLM analyzes the user input and decides which tools to call
-2. **Tools Node**: Executes the selected tools and returns results
-3. **Conditional Logic**: Evaluates if additional tool calls are needed or if the workflow is complete
-4. **Persistence**: Maintains [conversation context](https://docs.langchain.com/oss/javascript/langgraph/persistence) across interactions
+So what happened under the hood?
+When you clicked **Go**, your input was sent as a human message to the LLM, along with the system prompt and a reference to the available tools.
+The LLM then determined that it needed to use the tools to query the S/4HANA database, retrieve all PO items, and identify the overdue ones.
+Finally, it formatted the results and returned the response back to the frontend.
 
 ### Viewing Tool Calls in Detail
 
-To see exactly how the LLM selects tools, you can enable detailed tool call logging.
-In [app/agent/src/po-agent.ts](../../app/agent/src/po-agent.ts), uncomment the following lines in the `shouldContinueAgent()` function:
+To see exactly how the LLM selected the tools, you can enable detailed tool call logging.
+In [app/agent/src/po-agent.ts](../../javascript/app/agent/src/po-agent.ts), uncomment the following lines in the `shouldContinueAgent()` function:
 
 ```typescript
 if (lastMessage.tool_calls?.length) {
     console.log('Tool calls:', lastMessage.tool_calls);
 }
 ```
-
-With this enabled, the terminal logs show how the agent follows its system prompt instructions and which tools the LLM chooses:
+Now repeat [Step 5](#step-5-test-the-complete-workflow).
+The terminal logs will show how the agent follows its system prompt instructions and which tools the LLM chooses:
 
 ```bash
 [agent] Request: GET /api/agent/trigger-agent?prompt=Show me overdue PO items in plant DE01
@@ -214,18 +244,18 @@ With this enabled, the terminal logs show how the agent follows its system promp
 [agent] ]
 ```
 
-This demonstrates how the LLM chains tools together — first fetching PO data, then calculating overdue status for each item, and finally formatting the results.
-
-## Step 6: Test Different Scenarios
+## Step 7: Test Different Scenarios
 
 Try these queries to see how the agent interprets its prompt and uses tools:
 
 - `What PO items are overdue in Berlin?`
 - `Show me overdue items being delivered to Germany`
 
+In each of these calls, the AI agent will filter the PO items after it received all items from the S/4 system.
+
 ## Summary
 
-You have successfully built a simple AI agent using the SAP Cloud SDK for AI and LangGraph tools and workflow orchestration.
-You have also successfully tested the integration with the S/4HANA system to fetch data.
+You have successfully built an AI agent using the SAP Cloud SDK for AI and LangGraph.
+You have also tested the integration with the S/4HANA system to fetch data.
 
-Continue to [Exercise 2 - Implementing Note Creation](../ex2/README.md) to extend the agent's capabilities to save draft notes back to the S/4HANA system.
+Continue to [Exercise 2 - Escalating overdue Items: Writing Data to S/4](../ex2/README.md) to extend the agent's capabilities to write data to the S/4 system.
