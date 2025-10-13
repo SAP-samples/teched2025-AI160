@@ -56,7 +56,7 @@ public class PurchaseOrderMonitoringService {
     }
 
     List<PurchaseOrderItem> items = purchaseOrderTool.getPurchaseOrderItems(prompt, this);
-    log.debug("Got {} purchase order items, sending to {} subscribers", items.size(), subscribers.size());
+    log.trace("Got {} purchase order items, sending to {} subscribers", items.size(), subscribers.size());
 
     for (PurchaseOrdersView subscriber : new ArrayList<>(subscribers)) {
       try {

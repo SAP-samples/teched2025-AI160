@@ -50,6 +50,5 @@ The exercises demonstrate how to build AI agents using the SAP Cloud SDK for AI 
 - [Preparation](./ex0/README.md)
 - [Exercise 1 - Working with PO Items: Tool Usage and Data Fetching from S/4](./ex1/README.md)
 - [Exercise 2 - Escalating overdue Items: _Human-in-the-loop_ Workflow and Writing Data to S/4](./ex2/README.md)
-- [Exercise 3 - (Optional) Harmonization, Masking, and Prompt Shield](./ex3/README.md)
 
 Start from [here](./ex0/README.md).
