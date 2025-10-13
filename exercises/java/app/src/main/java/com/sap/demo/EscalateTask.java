@@ -47,7 +47,7 @@ public class EscalateTask {
     ChatClient chatClient = ChatClient.create(new OrchestrationChatModel());
     // --------------------------------------------------------------------------------------------
     // YOUR CODE START
-
+    /*
     String userQuery =
         "Please escalate for the following purchaseOrderItem %s, send email and save a note"
             .formatted(selectedPurchaseOrderItem.toString());
@@ -66,10 +66,10 @@ public class EscalateTask {
             .tools(askUserTool, mailTool, saveCommentTool, dateTimeTool)
             .call()
             .entity(EscalationOutcome.class);
-
+    */
     // YOUR CODE END
     // delete the following line
-    //    EscalationOutcome result = new EscalationOutcome(true, true, "Done");
+    EscalationOutcome result = new EscalationOutcome(true, true, "Done");
     // ---------------------------------------- EXERCISE 2 ----------------------------------------
 
     return result;

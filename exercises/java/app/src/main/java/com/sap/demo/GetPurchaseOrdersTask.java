@@ -43,7 +43,7 @@ public class GetPurchaseOrdersTask {
       String userQuery, PurchaseOrderMonitoringService monitoringService) {
     // ---------------------------------------- EXERCISE 1 ----------------------------------------
     // YOUR CODE START
-
+    /*
     OrchestrationModuleConfig config =
         new OrchestrationModuleConfig().withLlmConfig(OrchestrationAiModel.CLAUDE_4_SONNET);
     OrchestrationChatOptions options = new OrchestrationChatOptions(config);
@@ -62,10 +62,10 @@ public class GetPurchaseOrdersTask {
             .tools(tool)
             .call()
             .entity(new ParameterizedTypeReference<>() {});
-
+    */
     // YOUR CODE END
     // delete the following line
-    //    List<PurchaseOrderItem> result = new ReadPurchaseOrdersTool().getAllPurchaseOrders();
+     List<PurchaseOrderItem> result = new ReadPurchaseOrdersTool().getAllPurchaseOrders();
     // ---------------------------------------- EXERCISE 1 ----------------------------------------
 
     writeNotification(result, monitoringService);
