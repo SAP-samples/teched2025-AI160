@@ -1,6 +1,6 @@
 package com.sap.demo.tools;
 
-import com.sap.demo.Application;
+import com.sap.demo.Application.UiHandler;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.tool.annotation.Tool;
@@ -13,7 +13,7 @@ import java.util.Optional;
 @Slf4j
 public class MailTool {
 
-  private final Application.UiHandler handler;
+  private final UiHandler ui;
 
   /**
    * Request class for the sendMailTool
@@ -32,13 +32,13 @@ public class MailTool {
     String promptText = "Please confirm sending the following email to %s with the subject %s"
         .formatted(mailRequest.address(), mailRequest.subject());
 
-    Optional<String> response = handler.promptUser(promptTitle, promptText, mailRequest.text());
+    Optional<String> response = ui.promptUser(promptTitle, promptText, mailRequest.text());
 
     if (response.isPresent()) {
       String msg = "Email sent successfully! To: {}; Subject: {}; Body: {}%n";
       log.debug(msg, mailRequest.address(), mailRequest.subject(), response.get());
 
-      handler.notify("Email sent to %s".formatted(mailRequest.address()));
+      ui.notify("Email sent to %s".formatted(mailRequest.address()));
       return "Email sent";
     }
     return "Email not sent";
