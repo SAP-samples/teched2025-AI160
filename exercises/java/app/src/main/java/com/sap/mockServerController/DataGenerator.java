@@ -1,28 +1,26 @@
 package com.sap.mockServerController;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sap.generated.namespaces.purchaseorder.PurchaseOrderItem;
 import com.sap.generated.namespaces.purchaseorder.PurchaseOrderScheduleLine;
-import jakarta.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 @Service
 class DataGenerator {
-  @Value("${app.data.generate-on-startup:false}")
-  private boolean generateDataOnStartup;
 
-  @Value("${app.data.number-of-items:40}")
+  @Value("${app.data.generate-seed:100}")
+  private int generateDataSeed;
+
+  @Value("${app.data.generate-items:40}")
   private int numberOfItems;
-
-  private ObjectMapper JACKSON =
-      new ObjectMapper()
-          .setSerializationInclusion(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL);
 
   private List<String> cities =
       List.of(
@@ -71,86 +69,76 @@ class DataGenerator {
           "FusionWorks Ltd.",
           "Pioneer Edge");
 
-  @PostConstruct
-  void generatePurchaseOrderItems() {
-    if (!generateDataOnStartup) {
-      return;
+  List<PurchaseOrderItem> generatePurchaseOrderItems() {
+    return Stream.generate(new PurchaseOrderGenerator(new Random(generateDataSeed)))
+        .limit(numberOfItems)
+        .toList();
+  }
+
+  @RequiredArgsConstructor
+  private class PurchaseOrderGenerator implements Supplier<PurchaseOrderItem> {
+    private final Random r;
+
+    @Override
+    public PurchaseOrderItem get() {
+      String po = generatePO();
+      String poi = generatePOI();
+      return PurchaseOrderItem.builder()
+          .purchaseOrder(po)
+          .purchaseOrderItem(poi)
+          .purchaseOrderItemText(generateText())
+          .orderQuantity(generateQuantity())
+          .plant(generatePlant())
+          .deliveryAddressCityName(generateCity())
+          .scheduleLine(generateScheduleLine())
+          .build();
     }
-    List<PurchaseOrderItem> list = new ArrayList<>();
-    for (int i = 0; i < numberOfItems; i++) {
-      list.add(generateNewItem());
+
+    private String generatePO() {
+      return String.valueOf(r.nextInt(45000, 46000));
     }
-    writeItemFile(list);
-  }
 
-  private PurchaseOrderItem generateNewItem() {
-    String po = generatePO();
-    String poi = generatePOI();
-    return PurchaseOrderItem.builder()
-        .purchaseOrder(po)
-        .purchaseOrderItem(poi)
-        .purchaseOrderItemText(generateText())
-        .orderQuantity(generateQuantity())
-        .plant(generatePlant())
-        .deliveryAddressCityName(generateCity())
-        .scheduleLine(generateScheduleLine())
-        .build();
-  }
-
-  private String generatePO() {
-    return String.valueOf(45000 + (int) (Math.random() * 1000));
-  }
-
-  private String generatePOI() {
-    return String.format("%02d", 10 + (int) (Math.random() * 90));
-  }
-
-  private String generateText() {
-    String adjective = adjectives.get((int) (Math.random() * adjectives.size()));
-    adjective = adjective.substring(0, 1).toUpperCase() + adjective.substring(1);
-    String item = items.get((int) (Math.random() * items.size()));
-    item = item.substring(0, 1).toUpperCase() + item.substring(1);
-    String company = companies.get((int) (Math.random() * companies.size()));
-    return Math.random() > 0.5
-        ? String.format("%s %s from %s", adjective, item, company)
-        : String.format("%s's %s %s", company, adjective, item);
-  }
-
-  private String generateCity() {
-    return cities.get((int) (Math.random() * cities.size()));
-  }
-
-  private String generatePlant() {
-    String city = generateCity();
-    int number = (int) (Math.random() * 4) + 1;
-    return city.substring(0, 3).toUpperCase() + "0" + number;
-  }
-
-  private BigDecimal generateQuantity() {
-    return BigDecimal.valueOf(1.0 + (int) (Math.random() * 1000));
-  }
-
-  private PurchaseOrderScheduleLine generateScheduleLine() {
-    return PurchaseOrderScheduleLine.builder()
-        .scheduleLineDeliveryDate(generateDate())
-        .build();
-  }
-
-  private LocalDateTime generateDate() {
-    if (Math.random() > 0.5) {
-      return LocalDateTime.now().minusDays((int) (Math.random() * 30));
-    } else {
-      return LocalDateTime.now().plusDays((int) (Math.random() * 30));
+    private String generatePOI() {
+      return String.format("%02d", r.nextInt(10, 100));
     }
-  }
 
-  private void writeItemFile(List<PurchaseOrderItem> list) {
-    try {
-      JACKSON
-          .writerWithDefaultPrettyPrinter()
-          .writeValue(new java.io.File("src/main/resources/PurchaseOrderItem_example.json"), list);
-    } catch (Exception e) {
-      e.printStackTrace();
+    private String generateText() {
+      String adjective = adjectives.get(r.nextInt(adjectives.size()));
+      adjective = adjective.substring(0, 1).toUpperCase() + adjective.substring(1);
+      String item = items.get(r.nextInt(items.size()));
+      item = item.substring(0, 1).toUpperCase() + item.substring(1);
+      String company = companies.get(r.nextInt(companies.size()));
+      return r.nextBoolean()
+          ? String.format("%s %s from %s", adjective, item, company)
+          : String.format("%s's %s %s", company, adjective, item);
+    }
+
+    private String generateCity() {
+      return cities.get(r.nextInt(cities.size()));
+    }
+
+    private String generatePlant() {
+      String city = generateCity();
+      int number = r.nextInt(1, 5);
+      return city.substring(0, 3).toUpperCase() + "0" + number;
+    }
+
+    private BigDecimal generateQuantity() {
+      return BigDecimal.valueOf(r.nextLong(1, 1000));
+    }
+
+    private PurchaseOrderScheduleLine generateScheduleLine() {
+      return PurchaseOrderScheduleLine.builder()
+          .scheduleLineDeliveryDate(generateDate())
+          .build();
+    }
+
+    private LocalDateTime generateDate() {
+      if (r.nextBoolean()) {
+        return LocalDateTime.now().minusDays(r.nextInt(30));
+      } else {
+        return LocalDateTime.now().plusDays(r.nextInt(30));
+      }
     }
   }
 }

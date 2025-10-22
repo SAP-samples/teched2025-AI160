@@ -6,5 +6,5 @@ logging:
 
 app:
   data:
-    generate-on-startup: false
-    number-of-items: 40
+    generate-seed: 100
+    generate-items: 40
