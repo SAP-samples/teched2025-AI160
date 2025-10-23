@@ -23,6 +23,7 @@ The `createNoteTool` defines a Zod schema that describes the tool's input parame
     })
 }
 ```
+
 The LLM uses these schema descriptions to understand what parameters the tool needs.
 It can automatically determine values like the `language` parameter by detecting the language of the input text (e.g., 'EN' for English, 'DE' for German).
 
@@ -47,9 +48,9 @@ async function createNote(request: CreateNoteRequestParam): Promise<any> {
 }
 ```
 
-## Step 2: Add Human Message flowto Create Note
+## Step 2: Add Human Message flow to Create Note
 
-Navigate to the [app/agent/src/po-agent.ts](../../javascript/app/agent/src/po-agent.ts) file and examine the `createNote()` function:
+Navigate to the [app/agent/src/po-agent.ts](../../javascript/app/agent/src/po-agent.ts) file and uncomment the code in `createNote()` function.
 
 ```typescript
 export async function createNote(note: any, config: any): Promise<MessageContent | undefined> {
@@ -64,8 +65,10 @@ Note Text: ${note.noteText}
 }
 ```
 
-The LLM is invoked with a human message that instructs it to create a note for a specific purchase order item.
-The LLM calls the `create_note` tool with the appropriate arguments.
+Remove the last line `return;`.
+
+Here, the LLM is invoked with a human message that instructs it to create a note for a specific purchase order item.
+Upon invocation, the LLM will call the `create_note` tool with the appropriate arguments.
 
 ## Step 3: Enable Note Creation in the Agent
 

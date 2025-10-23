@@ -157,24 +157,32 @@ function App() {
       if (response.ok) {
         const data = await response.json()
         
-        // Create unique key for this order to track sent emails
-        const orderKey = `${selectedOrder.PurchaseOrder}-${selectedOrder.PurchaseOrderItem}`
-        
-        // Add to sent emails set and store the content
-        setSentEmails(prev => new Set(prev).add(orderKey))
-        setSentEmailContent(prev => new Map(prev).set(orderKey, editableEmail))
-        
-        // Set success popup data
-        setSuccessTimestamp(data.timestamp || new Date().toISOString())
-        setShowSuccessPopup(true)
-        
-        // Close email popup
-        handleCloseEmailPopup()
-        
-        // Auto-hide success popup after 2 seconds
-        setTimeout(() => {
-          setShowSuccessPopup(false)
-        }, 20000)
+        // Only show success popup if the createNote functionality actually returned a result
+        // When createNote is commented out/disabled, data.result will be undefined
+        if (data.success && data.result !== undefined) {
+          // Create unique key for this order to track sent emails
+          const orderKey = `${selectedOrder.PurchaseOrder}-${selectedOrder.PurchaseOrderItem}`
+          
+          // Add to sent emails set and store the content
+          setSentEmails(prev => new Set(prev).add(orderKey))
+          setSentEmailContent(prev => new Map(prev).set(orderKey, editableEmail))
+          
+          // Set success popup data
+          setSuccessTimestamp(data.timestamp || new Date().toISOString())
+          setShowSuccessPopup(true)
+          
+          // Close email popup
+          handleCloseEmailPopup()
+          
+          // Auto-hide success popup after 20 seconds
+          setTimeout(() => {
+            setShowSuccessPopup(false)
+          }, 20000)
+        } else {
+          console.log('Note creation functionality is not enabled yet')
+          // Just close the popup without showing success
+          handleCloseEmailPopup()
+        }
       } else {
         throw new Error('Failed to submit email')
       }
@@ -393,11 +401,11 @@ function App() {
               </div>
               
               <div className="modal-footer">
-                <button 
-                  className="sap-button-standard" 
-                  onClick={handleCloseEmailPopup}
-                  disabled={!isReadOnly && emailSubmitting}
-                >
+                  <button 
+                    className="sap-button-standard" 
+                    onClick={handleCloseEmailPopup}
+                    disabled={(!isReadOnly && emailSubmitting) || false}
+                  >
                   <img src="/static/298947_sys-cancel_blue.png" alt="Close" width="16" height="16" />
                   {isReadOnly ? 'Close' : 'Cancel'}
                 </button>

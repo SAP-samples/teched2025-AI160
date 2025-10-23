@@ -4,12 +4,25 @@ This track introduces attendees to building AI agents using the [SAP Cloud SDK f
 
 ## 1. Prerequisite
 
-1. Follow all the instructions as described in the [How to Start](../../README.md#getting-started) section.
-2. The test system access details are pre-filled in the [.env](app/agent/.env), in the below format. 
+1. For this exercise, you will use [VS Code](https://code.visualstudio.com) as the IDE.
+Open the IDE by typing "Visual Studio Code" in the Windows search bar.
+2. Open the terminal in VS Code by navigating to **Terminal -> New Terminal** from the top menu.
+3. Clone the project repository by running the following command in the terminal:
+
+    ```shell
+    git clone https://github.com/SAP-samples/teched2025-AI160.git
+    ```
+
+    After cloning, you’ll see a new folder with the project’s name in the same location where you ran git clone.
+    *(By default, this folder is created in the user directory, e.g. C:\Users\<user-name>\teched2025-AI160.)*
+
+4. Go to **File** → **Open Folder**, and select the cloned folder.
+5. Verify that Node.js (v22) and npm are installed by running the following commands in the terminal:
+
+```shell
+node -v
+npm -v
 ```
-AICORE_SERVICE_KEY='{"clientid": "<demo_credentials_clientid>","clientsecret": "<demo_credentials_clientsecret>","url": "<demo_credentials_url>","serviceurls": {"AI_API_URL": "<demo_credentials_serviceurls_AI_API_URL>"}}'
-```
-3. It is highly recommended to use an IDE like [VS Code](https://code.visualstudio.com) or [WebStorm](https://www.jetbrains.com/webstorm/).
 
 ## 2. Project Structure
 
