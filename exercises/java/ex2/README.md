@@ -172,8 +172,3 @@ You could, for example, tell the AI agent in what tone (e.g., _funny_ or _angry_
 
 You have successfully built an AI agent that uses multiple tools to solve a complex business task with a _human-in-the-loop_ workflow.
 Your agent is able to interact with the user and write data to an S/4 system.
-
-This is the end of the main part of the workshop.
-There is _bonus_ third exercise, where we will use feature from the AI SDK and AI Core's Orchestration modules to enhance the AI agent.
-
-If you are interested in that, continue to [Exercise 3 - Harmonization, Masking, and Prompt Shield](../ex3/README.md).
