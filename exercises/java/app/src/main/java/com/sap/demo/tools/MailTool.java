@@ -30,7 +30,7 @@ public record MailTool(UiHandler ui) {
     Optional<String> response = ui.promptUser(promptTitle, promptText, mailRequest.text());
 
     if (response.isPresent()) {
-      log.info("Email sent successfully! To: %s; Subject: %s; Body: %s%n".formatted(mailRequest.address(), mailRequest.subject(), response.get()));
+      log.info("Email sent successfully! To: {}; Subject: {}; Body: {}", mailRequest.address(), mailRequest.subject(), response.get());
 
       ui.notify("Email sent to %s".formatted(mailRequest.address()));
       return "Email sent";
