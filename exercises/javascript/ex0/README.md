@@ -4,7 +4,7 @@ By completing these steps, you will have the Express and React -based  web appli
 
 ### Prerequisites:
 
-The test system access details are pre-filled in the [.env](app/agent/.env), in the below format. 
+The test system access details are pre-filled in the [.env](../app/agent/.env), in the below format. 
 ```
 AICORE_SERVICE_KEY='{"clientid": "<demo_credentials_clientid>","clientsecret": "<demo_credentials_clientsecret>","url": "<demo_credentials_url>","serviceurls": {"AI_API_URL": "<demo_credentials_serviceurls_AI_API_URL>"}}'
 ```
