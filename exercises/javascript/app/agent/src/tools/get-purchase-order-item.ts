@@ -17,11 +17,11 @@ export const getPurchaseOrderItemsTool = tool(
         deliverAddressCityName,
         deliverAddressCountry
     }: SearchParams) => {
-        // return fetchPurchaseOrderItems(
-        //     plant,
-        //     deliverAddressCityName,
-        //     deliverAddressCountry
-        // );
+        return fetchPurchaseOrderItems(
+            plant,
+            deliverAddressCityName,
+            deliverAddressCountry
+        );
     },
     {
         name: 'get_purchase_order_items',

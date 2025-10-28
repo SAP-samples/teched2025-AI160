@@ -17,25 +17,25 @@ import { buildAzureContentSafetyFilter, buildDpiMaskingProvider } from '@sap-ai-
 
 // Define the tools for the agent to use
 const tools: any[] = [
-    // getPurchaseOrderItemsTool,
-    // calculateOverdueTool,
-    // formatPurchaseOrdersTool,
-    // createNoteTool
+    getPurchaseOrderItemsTool,
+    calculateOverdueTool,
+    formatPurchaseOrdersTool,
+    createNoteTool
 ];
 
 // Create a ToolNode with the defined tools
 const toolNode = new ToolNode(tools);
 
 // Create a model and give it access to the tools
-// const model = new OrchestrationClient({
-//     promptTemplating: {
-//         model: {
-//             name: 'gpt-5'
-//         }
-//     }
-// }, { maxRetries: 0 });
+const model = new OrchestrationClient({
+    promptTemplating: {
+        model: {
+            name: 'gpt-5'
+        }
+    }
+}, { maxRetries: 0 });
 
-// const modelWithTools = model.bindTools(tools);
+const modelWithTools = model.bindTools(tools);
 
 async function shouldContinueAgent({ messages }: typeof MessagesAnnotation.State) {
     const lastMessage = messages.at(-1) as AIMessage;
@@ -47,8 +47,8 @@ async function shouldContinueAgent({ messages }: typeof MessagesAnnotation.State
 
 // Define the function that calls the model
 async function callModel({ messages }: typeof MessagesAnnotation.State) {
-    // const response = await modelWithTools.invoke(messages);
-    // return { messages: [response] };
+    const response = await modelWithTools.invoke(messages);
+    return { messages: [response] };
 }
 
 const workflow = new StateGraph(MessagesAnnotation)
