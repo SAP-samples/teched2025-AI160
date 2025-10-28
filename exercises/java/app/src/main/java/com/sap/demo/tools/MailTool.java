@@ -8,6 +8,7 @@ import java.util.Optional;
 
 /** Tool for mails. */
 public record MailTool(UiHandler ui) {
+  private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(MailTool.class);
 
   /**
    * Request class for the sendMailTool
@@ -29,7 +30,7 @@ public record MailTool(UiHandler ui) {
     Optional<String> response = ui.promptUser(promptTitle, promptText, mailRequest.text());
 
     if (response.isPresent()) {
-      System.out.printf("Email sent successfully! To: %s; Subject: %s; Body: %s%n", mailRequest.address(), mailRequest.subject(), response.get());
+      log.info("Email sent successfully! To: %s; Subject: %s; Body: %s%n".formatted(mailRequest.address(), mailRequest.subject(), response.get()));
 
       ui.notify("Email sent to %s".formatted(mailRequest.address()));
       return "Email sent";

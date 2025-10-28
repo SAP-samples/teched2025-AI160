@@ -10,6 +10,7 @@ import org.springframework.ai.tool.annotation.ToolParam;
 
 /** Tool to save a PurchaseOrderItemNote. */
 public record SaveCommentTool(UiHandler ui) {
+  private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(SaveCommentTool.class);
 
   static final String PURCHASE_ORDER_URL = "http://localhost:8080/sap/opu/odata/sap";
 
@@ -34,11 +35,11 @@ public record SaveCommentTool(UiHandler ui) {
             .build();
     service.createPurchaseOrderItemNote(pOINote).executeRequest(dest);
 
-    System.out.printf(
-        "Note saved successfully: Item[%s - %s], Note%s%n",
+    log.info(
+        "Note saved successfully: Item[%s - %s], Note%s%n".formatted(
         request.purchaseOrderItem().getPurchaseOrder(),
         request.purchaseOrderItem().getPurchaseOrderItem(),
-        request.comment());
+        request.comment()));
 
     ui.notify("Purchase Order Item updated.");
   }

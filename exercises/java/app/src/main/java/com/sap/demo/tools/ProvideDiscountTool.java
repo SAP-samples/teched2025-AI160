@@ -6,6 +6,8 @@ import org.springframework.ai.tool.annotation.ToolParam;
 
 /** Tool to provide a discount on the purchase order. */
 public record ProvideDiscountTool(UiHandler ui) {
+  private static final org.slf4j.Logger log =
+      org.slf4j.LoggerFactory.getLogger(ProvideDiscountTool.class);
 
   /**
    * Request class
@@ -17,7 +19,7 @@ public record ProvideDiscountTool(UiHandler ui) {
   /** Tool to provide a discount on the purchase order. */
   @Tool(description = "Provide a discount on the purchase order to satisfy the customer and close the escalation.")
   public void discountPurchase(@ToolParam Request request) {
-    System.out.printf("Discount provided successfully: Percentage%s%n", request.percentageAmount());
+    log.info("Discount provided successfully: Percentage%s%n".formatted(request.percentageAmount()));
 
     ui.notify("Discount of %d%% provided".formatted(request.percentageAmount()));
   }
