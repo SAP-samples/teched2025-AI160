@@ -10,7 +10,7 @@ By completing these steps, you will have a [Spring Boot](https://spring.io/proje
   ![img/img.png](img/img.png)
 * 1.2 Collapse irrelevant views  
   ![img/img_1.png](img/img_1.png)
-* 1.3 Click `Import projects...` > `Prokects from Git (with smart import)`
+* 1.3 Click `Import projects...` > `Projects from Git (with smart import)`
   ![img/img_8.png](img/img_8.png)
 * 1.4 Select `Clone URI`
   ![img/img_9.png](img/img_9.png)
