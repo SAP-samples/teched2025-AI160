@@ -18,7 +18,7 @@ By completing these steps, you will have a [Spring Boot](https://spring.io/proje
   ![img/img_10.png](img/img_10.png)
 * 1.6 Have `main` selected, click `Next`
   ![img/img_11.png](img/img_11.png)
-* 1.7 Have default directory and click `Next`
+* 1.7 Optionally set the directory and click `Next`
   ![img/img_12.png](img/img_12.png)
 * 1.8 Have both folders selected and click `Finish`
   ![img/img_13.png](img/img_13.png)
