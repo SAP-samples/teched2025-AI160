@@ -28,7 +28,7 @@ public record SaveCommentTool(UiHandler ui) {
     String order = request.purchaseOrderItem().getPurchaseOrder();
     String item = request.purchaseOrderItem().getPurchaseOrderItem();
 
-    log.info("[TOOL START] Saving note for {} - {}", order,
+    log.info("[TOOL START] Saving note for Purchase Order Item {} - {}", order,
         item);
     long time = System.currentTimeMillis();
 
