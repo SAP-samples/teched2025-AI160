@@ -39,7 +39,7 @@ public record AskUserTool( UiHandler ui) {
             askUserRequest.briefQuestion(),
             askUserRequest.expectedAnswer());
 
-    log.info("[TOOL END] User {} answered after {}ms.",
+    log.info("[TOOL END] User {} answer after {}ms.",
         result.isPresent() ? "did" : "didn't",
         System.currentTimeMillis() - time);
     return result.orElse("No answer received");
