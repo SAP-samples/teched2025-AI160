@@ -32,7 +32,7 @@ public record MailTool(UiHandler ui) {
     Optional<String> response = ui.promptUser(promptTitle, promptText, mailRequest.text());
 
     if (response.isPresent()) {
-      log.info("[TOOL END] Email sent successfully after {}! To: {}; Subject: {}; Body: {}",
+      log.info("[TOOL END] Email sent successfully after {}ms. To: {}; Subject: {}; Body: {}",
           System.currentTimeMillis()-time,
           mailRequest.address(), mailRequest.subject(), response.get());
 
