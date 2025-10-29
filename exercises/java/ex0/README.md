@@ -20,16 +20,16 @@ By completing these steps, you will have a [Spring Boot](https://spring.io/proje
   ![img/img_11.png](img/img_11.png)
 * 1.7 Have default directory and click `Next`
   ![img/img_12.png](img/img_12.png)
-* 1.8 Have both folders selected, click `Finish`
+* 1.8 Have both folders selected and click `Finish`
   ![img/img_13.png](img/img_13.png)
 * 1.9 The project is loaded with two entries in the "Package Explorer"
   ![img/img_14.png](img/img_14.png)
 
 </details>
 
-<details><summary><b>[STEP 2]</b> Initial Compile Application</summary>
+<details><summary><b>[STEP 2]</b> Initially Compile Application</summary>
 
-* 2.1 Press "Run" button > `Run As` > `Maven install`
+* 2.1 Press the 'Run' button (green "Play" button) > `Run As` > `Maven install`
   ![img/img_15.png](img/img_15.png)
 * 2.2 A console dialog pops up
   ![img/img_16.png](img/img_16.png)
@@ -45,7 +45,7 @@ By completing these steps, you will have a [Spring Boot](https://spring.io/proje
   ![img/img_18.png](img/img_18.png)
 * 3.2 File name: `.env`, and press `Finish` 
   ![img/img_19.png](img/img_19.png)
-* 3.3 When asked for special editor/extension, juft press `Cancel`
+* 3.3 When asked for special editor/extension press `Cancel`
   ![img/img_20.png](img/img_20.png)
 * 3.4 Enter service key like below
   ![img/img_21.png](img/img_21.png)
@@ -55,7 +55,7 @@ By completing these steps, you will have a [Spring Boot](https://spring.io/proje
 
 <details><summary><b>[STEP 4]</b> Run Application</summary>
 
-* 4.1 Press "Run" button with drop-down > `Run As` > `Maven build...`
+* 4.1 Press 'Run' button (green "Play" button) with drop-down > `Run As` > `Maven build...`
   ![img/img_22.png](img/img_22.png)
 * 4.2 Enter `spring-boot:run` into "Goals" and press `Run`
   ![img/img_23.png](img/img_23.png)
