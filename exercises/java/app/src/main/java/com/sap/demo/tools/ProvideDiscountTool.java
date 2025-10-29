@@ -19,7 +19,7 @@ public record ProvideDiscountTool(UiHandler ui) {
   /** Tool to provide a discount on the purchase order. */
   @Tool(description = "Provide a discount on the purchase order to satisfy the customer and close the escalation.")
   public void discountPurchase(@ToolParam Request request) {
-    log.info("Discount provided successfully: Percentage%s%n".formatted(request.percentageAmount()));
+    log.info("Discount provided successfully: Percentage {}", request.percentageAmount());
 
     ui.notify("Discount of %d%% provided".formatted(request.percentageAmount()));
   }
