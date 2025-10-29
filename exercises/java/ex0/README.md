@@ -2,7 +2,15 @@
 
 By completing these steps, you will have a [Spring Boot](https://spring.io/projects/spring-boot)-based web application up and running.
 
-<details><summary>Tutorial: TechEd2025 notebooks</summary>
+You can choose between two scenarios to set up the application:
+
+
+<details open><summary><b>(Scenario A)</b> Tutorial: TechEd2025</summary>
+
+---
+
+There are four steps to get the application up and running in Eclipse.
+Click to expand:
 
 <details><summary><b>[STEP 1]</b> Checkout Session Repository</summary>
 
@@ -68,9 +76,12 @@ By completing these steps, you will have a [Spring Boot](https://spring.io/proje
 
 </details>
 
+---
+
 </details>
 
-<details><summary>Tutorial: Bring-Your-Own-Device</summary>
+
+<details><summary><b>(Scenario B)</b> Tutorial: Bring-Your-Own-Device</summary>
 
 ### Prerequisites:
 - [ ] Java (JRE17+) and Maven installed.
