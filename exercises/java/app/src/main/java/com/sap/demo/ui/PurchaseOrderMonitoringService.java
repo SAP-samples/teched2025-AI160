@@ -27,7 +27,7 @@ public class PurchaseOrderMonitoringService implements UiHandler {
   private String prompt = "";
 
   @Autowired
-  private GetPurchaseOrdersTask purchaseOrderTool;
+  private GetPurchaseOrdersTask purchaseOrderProvider;
 
   public void addSubscriber(PurchaseOrdersView subscriber) {
     subscribers.add(subscriber);
@@ -56,7 +56,7 @@ public class PurchaseOrderMonitoringService implements UiHandler {
       return;
     }
 
-    List<PurchaseOrderItem> items = purchaseOrderTool.getPurchaseOrderItems(prompt, this);
+    List<PurchaseOrderItem> items = purchaseOrderProvider.getPurchaseOrderItems(prompt, this);
 
     for (PurchaseOrdersView subscriber : new ArrayList<>(subscribers)) {
       try {

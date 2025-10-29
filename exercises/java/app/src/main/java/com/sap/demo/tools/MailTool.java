@@ -8,6 +8,7 @@ import java.util.Optional;
 
 /** Tool for mails. */
 public record MailTool(UiHandler ui) {
+  private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(MailTool.class);
 
   /**
    * Request class for the sendMailTool
@@ -21,6 +22,8 @@ public record MailTool(UiHandler ui) {
   /** Tool to send a mail. */
   @Tool(description = "Send an email to satisfy the customer and close the escalation.")
   public String sendMail(@ToolParam Request mailRequest) {
+    log.info("[TOOL START] Asking user to confirm email regarding \"{}\".", mailRequest.subject);
+    long time = System.currentTimeMillis();
     String promptTitle = "Confirm email";
 
     String promptText = "Please confirm sending the following email to %s with the subject %s"
@@ -29,11 +32,14 @@ public record MailTool(UiHandler ui) {
     Optional<String> response = ui.promptUser(promptTitle, promptText, mailRequest.text());
 
     if (response.isPresent()) {
-      System.out.printf("Email sent successfully! To: %s; Subject: %s; Body: %s%n", mailRequest.address(), mailRequest.subject(), response.get());
+      log.info("[TOOL END] Email sent successfully after {}ms. To: {}; Subject: {}; Body: {}",
+          System.currentTimeMillis()-time,
+          mailRequest.address(), mailRequest.subject(), response.get());
 
       ui.notify("Email sent to %s".formatted(mailRequest.address()));
       return "Email sent";
     }
+    log.info("[TOOL END] Email was not sent after {}ms.", System.currentTimeMillis()-time);
     return "Email not sent";
   }
 

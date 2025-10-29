@@ -21,11 +21,11 @@ But before we change this, we first need to set up the connection to AI Core.
 
 1. Create an `OrchestrationModuleConfig` object and select the LLM to use (we suggest Claude 4 Sonnet as a start).
 ```java
-OrchestrationModuleConfig config = new OrchestrationModuleConfig().withLlmConfig(OrchestrationAiModel.CLAUDE_4_SONNET);
+OrchestrationModuleConfig conf = new OrchestrationModuleConfig().withLlmConfig(CLAUDE_4_SONNET);
 ```
 2. Using that `OrchestrationModuleConfig` object, create an `OrchestrationChatOptions` object.
 ```java
-OrchestrationChatOptions options = new OrchestrationChatOptions(config);
+OrchestrationChatOptions options = new OrchestrationChatOptions(conf);
 ```
 3. Create a `ChatClient` object. 
 ```java
@@ -100,24 +100,23 @@ In total, your `getPurchaseOrderItems()` method should look something like the f
       String userQuery, PurchaseOrderMonitoringService monitoringService) {
     // ---------------------------------------- EXERCISE 1 ----------------------------------------
     // YOUR CODE START
-      OrchestrationModuleConfig config =
-          new OrchestrationModuleConfig().withLlmConfig(OrchestrationAiModel.CLAUDE_4_SONNET);
-      OrchestrationChatOptions options = new OrchestrationChatOptions(config);
+      OrchestrationModuleConfig conf = new OrchestrationModuleConfig().withLlmConfig(CLAUDE_4_SONNET);
+      OrchestrationChatOptions options = new OrchestrationChatOptions(conf);
       ChatClient chatClient = ChatClient.create(new OrchestrationChatModel());
-
+    
       UserMessage userMessage = new UserMessage(userQuery);
       Prompt userPrompt = new Prompt(userMessage);
-
+    
       ReadPurchaseOrdersTool tool = new ReadPurchaseOrdersTool();
-
-      List<PurchaseOrderItem> result = chatClient
-          .prompt(userPrompt)
-          .system(SYSTEM_MESSAGE)
-          .options(options)
-          .tools(tool)
-          .call()
-          .entity(new ParameterizedTypeReference<>() {});
-
+    
+      List<PurchaseOrderItem> result =
+          chatClient
+              .prompt(userPrompt)
+              .system(SYSTEM_MESSAGE)
+              .options(options)
+              .tools(tool)
+              .call()
+              .entity(new ParameterizedTypeReference<>() {});
     // YOUR CODE END
     // ---------------------------------------- EXERCISE 1 ----------------------------------------
 
@@ -129,11 +128,12 @@ In total, your `getPurchaseOrderItems()` method should look something like the f
 ## Step 5: Test the Complete Workflow
 
 Save your changes and restart the application.
+(You can restart the application by typing _ctrl + c_ in the terminal that currently runs the application and re-run the command `mvn spring-boot:run`.)
 
 Navigate to http://localhost:8080/ and test the code you have written:
 
 1. Make sure you have a sensible user query in the input field of the UI (e.g., "Yield purchase order items for cities in Hessen.").
-2. Click the **Execute Query** button
+2. Click the **Execute Query** button.
 
 You should see the table populate with PO items from cities in the german state of Hessen.
 

@@ -105,7 +105,7 @@ mvn spring-boot:run
 ### 4. Verify the Application is Running:
 After a few seconds, you should see the following log message:
 ```
-Tomcat initialized with port 8080 (http)
+Application running at http://localhost:8080/
 ```
 
 ### 5. Access the Application:

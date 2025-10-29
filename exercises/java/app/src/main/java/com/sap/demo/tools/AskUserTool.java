@@ -1,12 +1,16 @@
 package com.sap.demo.tools;
 
 import com.sap.demo.Application.UiHandler;
+import com.sap.demo.GetPurchaseOrdersTask;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.ai.tool.annotation.ToolParam;
+
+import java.util.Optional;
 
 
 /** Tool to ask the user a briefQuestion through the UI. */
 public record AskUserTool( UiHandler ui) {
+  private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(AskUserTool.class);
 
   /**
    * Request class for the AskUserTool
@@ -25,11 +29,19 @@ public record AskUserTool( UiHandler ui) {
       description =
           "Only way to interact with the user. Ask a brief question, provide an expected answer. The purpose is the title and should start with a verb.")
   public String askUser(@ToolParam final Request askUserRequest) {
-    return ui
+    log.info("[TOOL START] Asking user a question regarding \"{}\".",
+        askUserRequest.purpose());
+    long time = System.currentTimeMillis();
+
+    Optional<String> result = ui
         .promptUser(
             askUserRequest.purpose(),
             askUserRequest.briefQuestion(),
-            askUserRequest.expectedAnswer())
-        .orElse("No answer received");
+            askUserRequest.expectedAnswer());
+
+    log.info("[TOOL END] User {} answer after {}ms.",
+        result.isPresent() ? "did" : "didn't",
+        System.currentTimeMillis() - time);
+    return result.orElse("No answer received");
   }
 }

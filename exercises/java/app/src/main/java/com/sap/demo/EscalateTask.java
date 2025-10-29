@@ -14,6 +14,7 @@ import com.sap.generated.namespaces.purchaseorder.PurchaseOrderItem;
 import org.springframework.ai.chat.client.ChatClient;
 
 public class EscalateTask {
+  private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(EscalateTask.class);
 
   private static final String SYSTEM_MESSAGE =
       """
@@ -36,6 +37,8 @@ public class EscalateTask {
     """;
 
   public EscalationOutcome resolveEscalation(PurchaseOrderItem item, UiHandler ui) {
+    log.info("Resolving escalation for PurchaseOrderItem: {}", item.getPurchaseOrderItemText());
+
     // ---------------------------------------- EXERCISE 2 ----------------------------------------
     OrchestrationModuleConfig config =
         new OrchestrationModuleConfig().withLlmConfig(OrchestrationAiModel.CLAUDE_4_SONNET);
@@ -70,6 +73,7 @@ public class EscalateTask {
     EscalationOutcome result = new EscalationOutcome(true, true, "Done");
     // ---------------------------------------- EXERCISE 2 ----------------------------------------
 
+    log.info("Escalation finished with: {}", result);
     return result;
   }
 }

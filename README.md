@@ -2,7 +2,7 @@
 > Access to test systems are considered temporal.
 > However, in all cases you can still use the sample code and tutorial available in this repository.
 > 
-> If you are part of a workshop session, the credentials will be shared with you.
+> If you are part of a workshop session (e.g., TechEd or TechEd on Tour), the speakers should share the test system credentials with the participants.
 
 # AI160 - Build Your Own AI Agent-Based Solution with the Generative AI Hub
 
@@ -13,7 +13,7 @@ This repository contains material for multiple sessions:
 
 ## Overview
 
-This session introduces attendees on building AI agent-based solutions using the [SAP AI Core SDKs](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/libraries-and-sdks) and the [Generative AI Hub](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/generative-ai-hub-in-sap-ai-core) in AI Foundation.
+This session introduces attendees on building AI agent-based solutions using the [SAP Cloud SDK for AI](https://sap.github.io/ai-sdk/) and the [Generative AI Hub](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/generative-ai-hub-in-sap-ai-core) in AI Foundation.
 
 This session offers two parallel tracks:
 - [SAP Cloud SDK for AI (JavaScript)](exercises/javascript/README.md)
@@ -37,7 +37,7 @@ You may also opt to experience multiple tracks to broaden your understanding.
 
 Please note:
 
-* If you have your own AI Core instances for consuming Generative AI Hub capabilities, you can follow this tutorial using those instances.
+* If you have your own [AI Core instances](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/what-is-sap-ai-core?locale=en-US) for consuming Generative AI Hub capabilities, you can follow this tutorial using those instances.
   Please make the following adjustments:
     * You need to create a deployment for orchestration by referring the [documentation](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/create-deployment-for-orchestration?locale=en-US).
     * Before beginning the exercises, you’ll need to provide system information.
@@ -52,13 +52,13 @@ An AI-powered Purchase Order (PO) Management Agent that identifies overdue PO it
 ### Architecture
 
 The application demonstrates an AI agent workflow that orchestrates multiple specialized tools to process natural language queries about purchase order items.
-Available in both JavaScript ([LangGraph]((https://langchain-ai.github.io/langgraph/))) and Java (Spring AI) implementations.
+Available in both JavaScript ([LangGraph](https://langchain-ai.github.io/langgraph/)) and Java ([Spring AI](https://github.com/spring-projects/spring-ai)) implementations.
 
 ### Core Integration Points
 
 - **SAP S/4HANA**: Purchase Order API for real-time PO data retrieval and note creation
-- **SAP AI Core Orchestration Service**: Handles LLM invocation, content filtering, and data masking
-- **Agent Framework**: LangGraph (JS) or Spring AI (Java) for workflow orchestration and tool routing
+- **[SAP AI Core Orchestration Service](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/orchestration-8d022355037643cebf775cd3bf662cc5?locale=en-US)**: Handles LLM invocation, content filtering, and data masking
+- **Agent Framework**: [LangGraph](https://langchain-ai.github.io/langgraph/) (JS) or Spring AI (Java) for workflow orchestration and tool routing
 
 Users interact through a React frontend, submitting natural language queries like "Show overdue PO items for plant DE01".
 The agent intelligently routes through specialized tools — fetching PO data, calculating overdue status, formatting responses, and creating escalation notes.

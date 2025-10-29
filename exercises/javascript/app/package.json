@@ -4,8 +4,8 @@
   "description": "Application for SAP Purchase Order service",
   "type": "module",
   "scripts": {
-    "install": "concurrently 'npm i --prefix ./mock-server' 'npm i --prefix ./agent' 'npm i --prefix ./ui' --prefix '[{name}]' --names 'mock-server,agent,ui' --prefix-colors 'blue,green,yellow'",
-    "tutorial": "concurrently 'npm run mock-server' 'npm run agent' 'npm run ui' --prefix '[{name}]' --names 'mock-server,agent,ui' --prefix-colors 'blue,green,yellow'",
+    "install": "concurrently \"npm i --prefix ./mock-server\" \"npm i --prefix ./agent\" \"npm i --prefix ./ui\" --prefix \"[{name}]\" --names \"mock-server,agent,ui\" --prefix-colors \"blue,green,yellow\"",
+    "tutorial": "concurrently \"npm run mock-server\" \"npm run agent\" \"npm run ui\" --prefix \"[{name}]\" --names \"mock-server,agent,ui\" --prefix-colors \"blue,green,yellow\"",
     "mock-server": "npm run start --prefix ./mock-server",
     "agent": "npm run dev --prefix ./agent",
     "ui": "npm run start --prefix ./ui"
