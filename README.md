@@ -2,7 +2,7 @@
 > Access to test systems are considered temporal.
 > However, in all cases you can still use the sample code and tutorial available in this repository.
 > 
-> If you are part of a workshop session, the credentials will be shared with you.
+> If you are part of a workshop session (e.g., TechEd or TechEd on Tour), the speakers should share the test system credentials with the participants.
 
 # AI160 - Build Your Own AI Agent-Based Solution with the Generative AI Hub
 
