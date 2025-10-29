@@ -25,21 +25,29 @@ public record SaveCommentTool(UiHandler ui) {
   /** Tool to save a PurchaseOrderItemNote. */
   @Tool(description = "Write a short comment about the outcome of escalation incident, don't include purchase order item details.")
   public void saveComment(@ToolParam Request request) {
+    String order = request.purchaseOrderItem().getPurchaseOrder();
+    String item = request.purchaseOrderItem().getPurchaseOrderItem();
+
+    log.info("[TOOL START] Saving note for {} - {}", order,
+        item);
+    long time = System.currentTimeMillis();
+
     DefaultHttpDestination dest = DefaultHttpDestination.builder(PURCHASE_ORDER_URL).build();
     DefaultPurchaseOrderService service = new DefaultPurchaseOrderService();
     var pOINote =
         PurchaseOrderItemNote.builder()
-            .purchaseOrder(request.purchaseOrderItem.getPurchaseOrder())
-            .purchaseOrderItem(request.purchaseOrderItem.getPurchaseOrderItem())
+            .purchaseOrder(order)
+            .purchaseOrderItem(item)
             .plainLongText(request.comment)
             .build();
     service.createPurchaseOrderItemNote(pOINote).executeRequest(dest);
 
     log.info(
-        "Note saved successfully: Item[%s - %s], Note%s%n".formatted(
-        request.purchaseOrderItem().getPurchaseOrder(),
-        request.purchaseOrderItem().getPurchaseOrderItem(),
-        request.comment()));
+        "[TOOL END] Note saved successfully after {}ms: Item[{} - {}], Note: {}",
+        System.currentTimeMillis()-time,
+        order,
+        item,
+        request.comment());
 
     ui.notify("Purchase Order Item updated.");
   }

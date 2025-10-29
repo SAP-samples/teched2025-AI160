@@ -1,10 +1,11 @@
 logging:
   level:
     root: INFO
+    com.sap.demo: DEBUG
     org.springframework.web.socket: WARN
     org.apache.hc.client5.http.wire: WARN
     org.atmosphere.cpr.AtmosphereFramework: WARN
-    com.sap.demo: DEBUG
+    com.sap.cloud.security.servlet.MDCHelper: WARN
 
 app:
   data:
