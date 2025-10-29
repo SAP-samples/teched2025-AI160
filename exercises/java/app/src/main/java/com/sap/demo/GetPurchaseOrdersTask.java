@@ -45,6 +45,7 @@ public class GetPurchaseOrdersTask {
 
     // ---------------------------------------- EXERCISE 1 ----------------------------------------
     // YOUR CODE START
+    /*
     OrchestrationModuleConfig conf = new OrchestrationModuleConfig().withLlmConfig(CLAUDE_4_SONNET);
     OrchestrationChatOptions options = new OrchestrationChatOptions(conf);
     ChatClient chatClient = ChatClient.create(new OrchestrationChatModel());
@@ -62,13 +63,19 @@ public class GetPurchaseOrdersTask {
             .tools(tool)
             .call()
             .entity(new ParameterizedTypeReference<>() {});
+    */
+    // YOUR CODE END
+    // delete the following line
+     List<PurchaseOrderItem> result = new ReadPurchaseOrdersTool().getAllPurchaseOrders();
+    // ---------------------------------------- EXERCISE 1 ----------------------------------------
+
     writeNotification(result, ui);
     return result;
   }
 
   private void writeNotification(List<PurchaseOrderItem> result, UiHandler ui) {
     int n = result==null ? 0 : result.size();
-    String message = "Found %s Purchase Order items for the given LLM prompt.".formatted(n);
+    String message = "Found %d Purchase Order items for the given LLM prompt.".formatted(n);
     ui.notify(message);
     log.info(message);
   }
