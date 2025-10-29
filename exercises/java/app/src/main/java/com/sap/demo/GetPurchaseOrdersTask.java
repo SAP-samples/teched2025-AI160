@@ -3,9 +3,12 @@ package com.sap.demo;
 import com.sap.ai.sdk.orchestration.OrchestrationModuleConfig;
 import com.sap.ai.sdk.orchestration.spring.OrchestrationChatModel;
 import com.sap.ai.sdk.orchestration.spring.OrchestrationChatOptions;
+import com.sap.demo.tools.MailTool;
 import com.sap.demo.tools.ReadPurchaseOrdersTool;
 import com.sap.demo.Application.UiHandler;
 import com.sap.generated.namespaces.purchaseorder.PurchaseOrderItem;
+
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.ai.chat.client.ChatClient;
@@ -19,6 +22,8 @@ import static com.sap.ai.sdk.orchestration.OrchestrationAiModel.CLAUDE_4_SONNET;
 
 @Component
 public class GetPurchaseOrdersTask {
+  private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(GetPurchaseOrdersTask.class);
+
   private static final String SYSTEM_MESSAGE =
       """
     # PURCHASE ORDER AGENT
@@ -36,6 +41,8 @@ public class GetPurchaseOrdersTask {
 
   @Cacheable("purchaseOrders")
   public List<PurchaseOrderItem> getPurchaseOrderItems(String userQuery, UiHandler ui) {
+    log.info("Getting Purchase Order items for user query: {}", userQuery);
+
     // ---------------------------------------- EXERCISE 1 ----------------------------------------
     // YOUR CODE START
     /*
@@ -70,5 +77,6 @@ public class GetPurchaseOrdersTask {
     int n = result==null ? 0 : result.size();
     String message = "Found %d Purchase Order items for the given LLM prompt.".formatted(n);
     ui.notify(message);
+    log.info(message);
   }
 }
