@@ -1,7 +1,6 @@
 # Specific project ignores
 app/src/main/frontend/
 app/target/
-app/.env
 .idea/
 .idea/modules.xml
 .idea/jarRepositories.xml

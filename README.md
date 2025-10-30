@@ -4,6 +4,15 @@
 > 
 > If you are part of a workshop session (e.g., TechEd or TechEd on Tour), the speakers should share the test system credentials with the participants.
 
+> [!WARNING]
+> ## Disclaimer
+> 
+> While using the test system, please note the following terms:
+> 1. **System Duration**: The test system will be available only during the workshop session.
+> 1. **Testing/Learning Purposes Only**: The test system is intended solely for testing or learning purposes and **must not** be used for any productive or commercial activities.
+> 1. **Malicious Usage**: Any detection of malicious usage will result in immediate termination of your test system access. Depending on the severity of the abuse, legal action may be pursued.
+> 1. **Feature Changes**: Do not make any business decisions on the contents of this exercise. SAP reserves the right to change or deprecate any feature of the Orchestration Service in future, without any prior notifiation.
+
 # AI160 - Build Your Own AI Agent-Based Solution with the Generative AI Hub
 
 ## Description
@@ -64,6 +73,13 @@ Users interact through a React frontend, submitting natural language queries lik
 The agent intelligently routes through specialized tools — fetching PO data, calculating overdue status, formatting responses, and creating escalation notes.
 
 ![alt text](image.png)
+
+### Related SDKs & Resources
+This tutorial is built using the SAP Cloud SDK for AI.
+If you’d like to learn more or integrate it into your own projects, check out the following resources:
+- 📚 SDK Documentation Portal: https://sap.github.io/ai-sdk/
+- 🚀 JavaScript SDK GitHub Repository: https://github.com/SAP/ai-sdk-js
+- ☕️ Java SDK GitHub Repository: https://github.com/SAP/ai-sdk-java
 
 ## Contributing
 Please read the [CONTRIBUTING.md](./CONTRIBUTING.md) to understand the contribution guidelines.

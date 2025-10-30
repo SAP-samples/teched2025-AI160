@@ -16,6 +16,3 @@ Thumbs.db
 *.swp
 *.swo
 *~
-
-# Environment Variables
-.env
