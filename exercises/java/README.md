@@ -5,7 +5,7 @@ This track introduces attendees to building AI agents using the [SAP Cloud SDK f
 ## 1. Prerequisite
 
 1. Follow all the instructions as described in the [How to Start](../../README.md#getting-started) section.
-2. The test system access details are pre-filled in the [.env file](../../.env), in the below format.
+2. The test system access details are pre-filled in the [.env file](./app/.env), in the below format.
 ```
 AICORE_SERVICE_KEY='{"clientid": "<demo_credentials_clientid>","clientsecret": "<demo_credentials_clientsecret>","url": "<demo_credentials_url>","serviceurls": {"AI_API_URL": "<demo_credentials_serviceurls_AI_API_URL>"}}'
 ```
