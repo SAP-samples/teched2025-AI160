@@ -118,7 +118,7 @@ Type or uncomment the following code snippet:
 const model = new OrchestrationClient({
     promptTemplating: {
         model: {
-            name: 'gpt-5'
+            name: 'gpt-4o'
         }
     }
 }, { maxRetries: 0 });
