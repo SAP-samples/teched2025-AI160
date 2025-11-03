@@ -19,7 +19,7 @@
         <java.version>17</java.version>
         <vaadin.version>24.8.0</vaadin.version>
         <cloud-sdk.version>5.22.0</cloud-sdk.version>
-        <orchestration.version>1.12.0</orchestration.version>
+        <orchestration.version>1.13.0</orchestration.version>
         <json.version>20240303</json.version>
     </properties>
 
