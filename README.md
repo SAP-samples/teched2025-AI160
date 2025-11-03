@@ -1,3 +1,5 @@
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/teched2025-AI160)](https://api.reuse.software/info/github.com/SAP-samples/teched2025-AI160)
+
 > [!CAUTION]
 > Access to test systems are considered temporal.
 > However, in all cases you can still use the sample code and tutorial available in this repository.
