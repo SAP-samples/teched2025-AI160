@@ -1,0 +1,61 @@
+# Preparation - Bring-Your-Own-Device
+
+This guide is here to help you set up a [Spring Boot](https://spring.io/projects/spring-boot)-based web application if you are **not** using a device provided at TechEd 2025 in Berlin.
+If you are at TechEd 2025 in Berlin and use a device provided at the hands-on session there, please refer to [this guide](README.md) instead.
+
+### Prerequisites:
+- [ ] Java (JRE17+) and Maven installed.
+- [ ] Java IDE (e.g., IntelliJ or Eclipse)
+- [ ] Checkout (or download code from) repository: https://github.com/SAP-samples/teched2025-AI160
+
+
+### 1. Navigate to the Application Directory:
+
+Assuming you are still in the root directory of the repository, navigate to the app folder:
+```shell
+cd exercises/java/app
+```
+
+### 2. Install Dependencies:
+
+Install the required dependencies using:
+```shell
+mvn clean install
+```
+> [!NOTE]
+> `mvn clean install` removes any pre-built files for your compiled application and compiles the application into an executable binary. Also, it downloads and installs missing dependencies into your local Maven repository (e.g. `~/.m2`).
+
+### 3. Start the Application:
+
+You can run the application in your IDE by directly executing the `Application` class, or alternatively use the following command to start the app locally via Maven:
+
+```shell
+mvn spring-boot:run
+```
+
+### 4. Verify the Application is Running:
+After a few seconds, you should see the following log message:
+```
+Application running at http://localhost:8080/
+```
+
+### 5. Access the Application:
+Open your browser and visit http://localhost:8080/.
+You should see a page title **Purchase Order Agent**.
+
+
+#### Troubleshooting:
+If you encounter errors, please look closely at the exception.
+And try checking if port 8080 is in use:
+```shell
+lsof -i :8080
+```
+
+## Summary
+**Congratulations!**
+
+Your application is up and running.
+
+You’re now ready to move on to the next step.
+Continue to [Exercise 1 - Working with PO Items: Tool Usage and Data Fetching from S/4](../ex1/README.md).
+

@@ -2,23 +2,14 @@
 
 This track introduces attendees to building AI agents using the [SAP Cloud SDK for AI (Java)](https://github.com/SAP/ai-sdk-java) and [SpringAI](https://spring.io/projects/spring-ai).
 
-## 1. Prerequisite
-
-1. Follow all the instructions as described in the [How to Start](../../README.md#getting-started) section.
-2. The test system access details are pre-filled in the [.env file](./app/.env), in the below format.
-```
-AICORE_SERVICE_KEY='{"clientid": "<demo_credentials_clientid>","clientsecret": "<demo_credentials_clientsecret>","url": "<demo_credentials_url>","serviceurls": {"AI_API_URL": "<demo_credentials_serviceurls_AI_API_URL>"}}'
-```
-3. It is highly recommended to use a modern IDE. On the demo laptops, Eclipse should be provided.
-
-## 2. Project Structure
+## Project Structure
 The [project](app/src/main/java/com/sap/demo) used for this session is a Purchase Order Management application with AI agent capabilities.
 You will get more information in the exercises.
 
-### 2.1 Dependencies
+### Dependencies
 The necessary dependencies for the exercises are specified in the pom files.
 
-### 2.2 Related Source Code
+### Related Source Code
 
 The application consists of the following main components:
 

@@ -2,17 +2,15 @@
 
 By completing these steps, you will have a [Spring Boot](https://spring.io/projects/spring-boot)-based web application up and running.
 
-You can choose between two scenarios to set up the application:
+This guide assumes you are taking part in the hands-on workshop at TechEd 2025 in Berlin using the provided laptops.
+If you follow this guide anywhere else and use your own device, please find relevant information in [this guide](OwnDeviceGuide.md) instead.
 
 
-<details open><summary><b>(Scenario A)</b> Tutorial: TechEd2025</summary>
-
----
+## Tutorial - TechEd 2025
 
 There are four steps to get the application up and running in Eclipse.
-Click to expand:
 
-<details><summary><b>[STEP 1]</b> Checkout Session Repository</summary>
+### Step 1: Checkout Session Repository
 
 * 1.1 Open Eclipse
   ![img/img.png](img/img.png)
@@ -33,9 +31,8 @@ Click to expand:
 * 1.9 The project is loaded with two entries in the "Package Explorer"
   ![img/img_14.png](img/img_14.png)
 
-</details>
 
-<details><summary><b>[STEP 2]</b> Initially Compile Application</summary>
+### Step 2: Initially Compile the Application
 
 * 2.1 Press the 'Run' button (green "Play" button) > `Run As` > `Maven install`
   ![img/img_15.png](img/img_15.png)
@@ -44,20 +41,16 @@ Click to expand:
 * 2.3 The build completes with `BUILD SUCCESS` 
   ![img/img_17.png](img/img_17.png)
 
-</details>
 
-
-<details><summary><b>[STEP 3]</b> Check Test System Credentials</summary>
+### Step 3: Check Test System Credentials
   
 The test system access details are pre-filled in the [`exercises/java/app/.env`](../app/.env) file, in the below format.
 ```
 AICORE_SERVICE_KEY={"clientid": "placeholder", "clientsecret": "placeholder", "url": "placeholder", "serviceurls": {"AI_API_URL": "placeholder"} }
 ```
 
-</details>
 
-
-<details><summary><b>[STEP 4]</b> Run Application</summary>
+### Step 4: Run Application
 
 * 4.1 Press 'Run' button (green "Play" button) with drop-down > `Run As` > `Maven build...`
   ![img/img_22.png](img/img_22.png)
@@ -70,64 +63,6 @@ AICORE_SERVICE_KEY={"clientid": "placeholder", "clientsecret": "placeholder", "u
 * 4.5 You can now start the Browser and navigate to http://localhost:8080 - This is your application frontend!
   ![img/img_26.png](img/img_26.png)
 
-</details>
-
----
-
-</details>
-
-
-<details><summary><b>(Scenario B)</b> Tutorial: Bring-Your-Own-Device</summary>
-
-### Prerequisites:
-- [ ] Java (JRE17+) and Maven installed.
-- [ ] Java IDE (e.g., IntelliJ or Eclipse)
-- [ ] Checkout (or download code from) repository: https://github.com/SAP-samples/teched2025-AI160
-
-
-### 1. Navigate to the Application Directory:
-
-Assuming you are still in the root directory of the repository, navigate to the app folder:
-```shell
-cd exercises/java/app
-```
-
-### 2. Install Dependencies:
-
-Install the required dependencies using:
-```shell
-mvn clean install
-```
-> [!NOTE]
-> `mvn clean install` removes any pre-built files for your compiled application and compiles the application into an executable binary. Also, it downloads and installs missing dependencies into your local Maven repository (e.g. `~/.m2`).
-
-### 3. Start the Application:
-
-You can run the application in your IDE by directly executing the `Application` class, or alternatively use the following command to start the app locally via Maven:
-
-```shell
-mvn spring-boot:run
-```
-
-### 4. Verify the Application is Running:
-After a few seconds, you should see the following log message:
-```
-Application running at http://localhost:8080/
-```
-
-### 5. Access the Application:
-Open your browser and visit http://localhost:8080/.
-You should see a page title **Purchase Order Agent**.
-
-
-#### Troubleshooting:
-If you encounter errors, please look closely at the exception.
-And try checking if port 8080 is in use:
-```shell
-lsof -i :8080
-```
-
-</details>
 
 ## Summary
 **Congratulations!**
