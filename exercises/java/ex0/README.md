@@ -18,11 +18,11 @@ There are four steps to get the application up and running in Eclipse.
   ![img/img_1.png](img/img_1.png)
 * 1.3 Click `Import projects...` > `Projects from Git (with smart import)`
   ![img/img_8.png](img/img_8.png)
-* 1.4 Select `Clone URI`
+* 1.4 Select `Clone URI` and click `Next`
   ![img/img_9.png](img/img_9.png)
 * 1.5 Enter `https://github.com/SAP-samples/teched2025-AI160` and click `Next`
   ![img/img_10.png](img/img_10.png)
-* 1.6 Have `main` selected, click `Next`
+* 1.6 Have (only) `main` selected, click `Next`
   ![img/img_11.png](img/img_11.png)
 * 1.7 Optionally set the directory and click `Next`
   ![img/img_12.png](img/img_12.png)
@@ -34,7 +34,7 @@ There are four steps to get the application up and running in Eclipse.
 
 ### Step 2: Initially Compile the Application
 
-* 2.1 Press the 'Run' button (green "Play" button) > `Run As` > `Maven install`
+* 2.1 Select the `app` folder, press the 'Run' button (green "Play" button) > `Run As` > `Maven install`
   ![img/img_15.png](img/img_15.png)
 * 2.2 A console dialog pops up
   ![img/img_16.png](img/img_16.png)
