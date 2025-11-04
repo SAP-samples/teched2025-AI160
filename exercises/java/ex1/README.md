@@ -133,7 +133,9 @@ Then click the red "Stop" button (🟥) above the terminal in which your applica
 Now you can click the green "Run" button on top of the screen again.
 (If you run the application through a terminal outside Eclipse, you can restart the application by typing _ctrl + c_ in the terminal that currently runs the application and re-run the command `mvn spring-boot:run`.)
 
-Navigate to http://localhost:8080/ and test the code you have written:
+![img/img_30.png](img/img_30.png)
+
+After that, navigate to http://localhost:8080/ and test the code you have written:
 
 1. Make sure you have a sensible user query in the input field of the UI (e.g., "Yield purchase order items for cities in Hessen.").
 2. Click the **Execute Query** button.
