@@ -47,16 +47,12 @@ Click to expand:
 </details>
 
 
-<details><summary><b>[STEP 3]</b> Add Credentials To Environment</summary>
-
-* 3.1 Right-click on `app` root element > `New` > `File` 
-  ![img/img_18.png](img/img_18.png)
-* 3.2 File name: `.env`, and press `Finish` 
-  ![img/img_19.png](img/img_19.png)
-* 3.3 When asked for special editor/extension press `Cancel`
-  ![img/img_20.png](img/img_20.png)
-* 3.4 Enter service key like below
-  ![img/img_21.png](img/img_21.png)
+<details><summary><b>[STEP 3]</b> Check Test System Credentials</summary>
+  
+The test system access details are pre-filled in the [`exercises/java/app/.env`](../app/.env) file, in the below format.
+```
+AICORE_SERVICE_KEY={"clientid": "placeholder", "clientsecret": "placeholder", "url": "placeholder", "serviceurls": {"AI_API_URL": "placeholder"} }
+```
 
 </details>
 
