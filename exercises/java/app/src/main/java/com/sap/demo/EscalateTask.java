@@ -45,6 +45,32 @@ public class EscalateTask {
 
     OrchestrationChatOptions options = new OrchestrationChatOptions(config);
 
+    /* ---------------------------------------- EXERCISE 3 (Solution) ----------------------------------------
+     Change model to GPT-4.1, apply email redaction masking, and enable prompt shielding.
+     Place this block directly below the Exercise 2 `config` and `options` lines.
+     Uncomment this block and comment out the Exercise 2 `config` and `options` lines to enable Exercise 3.
+
+     OrchestrationModuleConfig conf3 = new OrchestrationModuleConfig()
+         .withLlmConfig(OrchestrationAiModel.GPT_41);
+
+     var emailRegex = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}";
+     var maskingConfig = com.sap.ai.sdk.orchestration.DpiMasking.anonymization()
+         .withRegex(emailRegex, "EMAIL ADDRESS REMOVED");
+
+     var filterStrict = new com.sap.ai.sdk.orchestration.AzureContentFilter()
+         .promptShield(true)
+         .hate(com.sap.ai.sdk.orchestration.AzureFilterThreshold.ALLOW_SAFE)
+         .selfHarm(com.sap.ai.sdk.orchestration.AzureFilterThreshold.ALLOW_SAFE)
+         .sexual(com.sap.ai.sdk.orchestration.AzureFilterThreshold.ALLOW_SAFE)
+         .violence(com.sap.ai.sdk.orchestration.AzureFilterThreshold.ALLOW_SAFE);
+
+     OrchestrationModuleConfig finalConf = conf3
+         .withMaskingConfig(maskingConfig)
+         .withInputFiltering(filterStrict);
+
+     OrchestrationChatOptions options = new OrchestrationChatOptions(finalConf);
+     ---------------------------------------- EXERCISE 3 (Solution) ---------------------------------------- */
+
     ChatClient chatClient = ChatClient.create(new OrchestrationChatModel());
     // --------------------------------------------------------------------------------------------
     // YOUR CODE START
@@ -68,6 +94,21 @@ public class EscalateTask {
             .call()
             .entity(EscalationOutcome.class);
     */
+    /* ---------------------------------------- EXERCISE 3 (Solution) ----------------------------------------
+     Use the EX3 `options` in the existing tool-driven call.
+     Uncomment this line and comment out the default call to enable Exercise 3.
+
+     EscalationOutcome result =
+         chatClient
+             .prompt()
+             .system(SYSTEM_MESSAGE)
+             .user(userQuery)
+             .options(options)
+             .tools(askUserTool, mailTool, saveCommentTool, dateTimeTool)
+             .call()
+             .entity(EscalationOutcome.class);
+     ---------------------------------------- EXERCISE 3 (Solution) ---------------------------------------- */
+
     // YOUR CODE END
     // delete the following line
     EscalationOutcome result = new EscalationOutcome(true, true, "Done");

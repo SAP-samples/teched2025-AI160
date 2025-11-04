@@ -3,6 +3,11 @@ package com.sap.demo;
 import com.sap.ai.sdk.orchestration.OrchestrationModuleConfig;
 import com.sap.ai.sdk.orchestration.spring.OrchestrationChatModel;
 import com.sap.ai.sdk.orchestration.spring.OrchestrationChatOptions;
+/* Exercise 3 imports
+import com.sap.ai.sdk.orchestration.DpiMasking;
+import com.sap.ai.sdk.orchestration.AzureContentFilter;
+import static com.sap.ai.sdk.orchestration.AzureFilterThreshold.*;
+ */
 import com.sap.demo.tools.MailTool;
 import com.sap.demo.tools.ReadPurchaseOrdersTool;
 import com.sap.demo.Application.UiHandler;
@@ -17,8 +22,10 @@ import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Component;
-
+// Comment out in Exercise 3
 import static com.sap.ai.sdk.orchestration.OrchestrationAiModel.CLAUDE_4_SONNET;
+// Uncomment in Exercise 3
+//import static com.sap.ai.sdk.orchestration.OrchestrationAiModel.GPT_41;
 
 @Component
 public class GetPurchaseOrdersTask {
@@ -46,7 +53,10 @@ public class GetPurchaseOrdersTask {
     // ---------------------------------------- EXERCISE 1 ----------------------------------------
     // YOUR CODE START
     /*
+    // Comment out for Exercise 3
     OrchestrationModuleConfig conf = new OrchestrationModuleConfig().withLlmConfig(CLAUDE_4_SONNET);
+    // Uncomment for Exercise 3
+    // OrchestrationModuleConfig conf = new OrchestrationModuleConfig().withLlmConfig(GPT_41);
     OrchestrationChatOptions options = new OrchestrationChatOptions(conf);
     ChatClient chatClient = ChatClient.create(new OrchestrationChatModel());
 
@@ -65,8 +75,63 @@ public class GetPurchaseOrdersTask {
             .entity(new ParameterizedTypeReference<>() {});
     */
     // YOUR CODE END
+
+    /* ---------------------------------------- EXERCISE 3 (Solution) ----------------------------------------
+     Change model to GPT-4.1, enable masking (email redaction), and apply prompt shielding.
+     Place this block directly below the Exercise 1 `conf` and `options` lines.
+     Uncomment this block and comment out the Exercise 1 `conf` and `options` lines to enable Exercise 3.
+
+     OrchestrationModuleConfig conf = new OrchestrationModuleConfig()
+         .withLlmConfig(GPT_41);
+
+     // Email redaction (masking)
+     var emailRegex = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}";
+     var maskingConfig = DpiMasking.anonymization()
+         .withRegex(emailRegex, "EMAIL ADDRESS REMOVED");
+
+     // Strict prompt shielding
+     var filterStrict = new AzureContentFilter()
+         .promptShield(true)
+         .hate(ALLOW_SAFE)
+         .selfHarm(ALLOW_SAFE)
+         .sexual(ALLOW_SAFE)
+         .violence(ALLOW_SAFE);
+
+     // Final EX3 config
+     OrchestrationModuleConfig finalConf = conf
+         .withMaskingConfig(maskingConfig)
+         .withInputFiltering(filterStrict);
+
+     // Options built from EX3 config
+     OrchestrationChatOptions options = new OrchestrationChatOptions(finalConf);
+     ---------------------------------------- EXERCISE 3 (Solution) ---------------------------------------- */
     // delete the following line
      List<PurchaseOrderItem> result = new ReadPurchaseOrdersTool().getAllPurchaseOrders();
+
+    /* ---------------------------------------- EXERCISE 3 (Solution) ----------------------------------------
+     Add minimal error handling to surface prompt shielding errors and avoid spinner hang.
+     Place this block directly below the default call block.
+     Uncomment this block and comment out the default call to enable Exercise 3 error handling.
+
+     List<PurchaseOrderItem> result;
+     try {
+         result = chatClient
+             .prompt(userPrompt)
+             .system(SYSTEM_MESSAGE)
+             .options(options)
+             .tools(tool)
+             .call()
+             .entity(new org.springframework.core.ParameterizedTypeReference<List<PurchaseOrderItem>>() {});
+     } catch (com.sap.ai.sdk.orchestration.OrchestrationFilterException e) {
+         log.warn("Prompt shielding blocked input: {}", e.getMessage(), e);
+         ui.notify("Prompt shielding blocked the input. Please modify your prompt or thresholds.");
+         return List.of();
+     } catch (RuntimeException e) {
+         log.error("Unexpected error during orchestration: {}", e.getMessage(), e);
+         ui.notify("An error occurred while processing your request.");
+         return List.of();
+     }
+     ---------------------------------------- EXERCISE 3 (Solution) ---------------------------------------- */
     // ---------------------------------------- EXERCISE 1 ----------------------------------------
 
     writeNotification(result, ui);
