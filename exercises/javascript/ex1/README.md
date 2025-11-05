@@ -66,7 +66,7 @@ The `getPurchaseOrderItemsTool` tool is designed to fetch Purchase Order items f
 
 The underlying `fetchPurchaseOrderItems()` function called by the tool handles OData queries and returns data including delivery schedules and notes.
 
-Type or uncomment the following code within the `getPurchaseOrderItemsTool()` function body and save the file:
+Type or uncomment the following code within the `getPurchaseOrderItemsTool()` function body and save the file (`Ctrl` + `S`):
 
 ```typescript
 async ({
@@ -162,7 +162,7 @@ When the workflow reaches `END`, the final LLM response is returned.
 
 ## Step 5: Test the Complete Workflow
 
-Save your changes and wait for the application to restart automatically.
+Make sure all changes are saved. The application is restarted automatically.
 
 Navigate to http://localhost:3002/ and test the overdue detection:
 
