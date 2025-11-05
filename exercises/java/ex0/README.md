@@ -22,7 +22,7 @@ There are four steps to get the application up and running in Eclipse.
   ![img/img_9.png](img/img_9.png)
 * 1.5 Enter `https://github.com/SAP-samples/teched2025-AI160` and click `Next`
   ![img/img_10.png](img/img_10.png)
-* 1.6 Have (only) `main` selected, click `Next`
+* 1.6 Select `berlin` branch, click `Next`
   ![img/img_11.png](img/img_11.png)
 * 1.7 Optionally set the directory and click `Next`
   ![img/img_12.png](img/img_12.png)
