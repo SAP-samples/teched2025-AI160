@@ -10,7 +10,7 @@ Open the IDE by typing "Visual Studio Code" in the Windows search bar.
 3. Clone the project repository by running the following command in the terminal:
 
     ```shell
-    git clone https://github.com/SAP-samples/teched2025-AI160.git
+    git clone -b berlin https://github.com/SAP-samples/teched2025-AI160.git
     ```
 
     After cloning, you’ll see a new folder with the project’s name in the same location where you ran git clone.
