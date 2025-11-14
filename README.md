@@ -35,6 +35,18 @@ You may choose the track that best aligns with your technology stack.
 You may also opt to experience multiple tracks to broaden your understanding.
 
 ## Getting Started
+0. **Software requirements**:
+- **TechEd Berlin**: The provided laptops already meet all requirements.
+- Other Sessions:
+  - General
+    - Git
+  - JS
+    - IDE: VS Code or WebStrom
+    - Node 20+
+  - Java
+    - IDE: Eclipse or IntelliJ
+    - Java 21
+    - Maven 3
 
 1. **Clone the Repository**:
     
