@@ -103,6 +103,7 @@ const tools = [
     getPurchaseOrderItemsTool,
     calculateOverdueTool,
     formatPurchaseOrdersTool
+    // createNoteTool
 ];
 ```
 
