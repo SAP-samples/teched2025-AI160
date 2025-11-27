@@ -1,7 +1,7 @@
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/teched2025-AI160)](https://api.reuse.software/info/github.com/SAP-samples/teched2025-AI160)
 
 > [!CAUTION]
-> Access to test systems are considered temporal.
+> Access to test systems are considered temporary.
 > However, in all cases you can still use the sample code and tutorial available in this repository.
 > 
 > If you are part of a workshop session (e.g., TechEd or TechEd on Tour), the speakers should share the test system credentials with the participants.
@@ -13,7 +13,7 @@
 > 1. **System Duration**: The test system will be available only during the workshop session.
 > 1. **Testing/Learning Purposes Only**: The test system is intended solely for testing or learning purposes and **must not** be used for any productive or commercial activities.
 > 1. **Malicious Usage**: Any detection of malicious usage will result in immediate termination of your test system access. Depending on the severity of the abuse, legal action may be pursued.
-> 1. **Feature Changes**: Do not make any business decisions on the contents of this exercise. SAP reserves the right to change or deprecate any feature of the Orchestration Service in future, without any prior notifiation.
+> 1. **Feature Changes**: Do not make any business decisions on the contents of this exercise. SAP reserves the right to change or deprecate any feature of the Orchestration Service in the future, without any prior notification.
 
 # AI160 - Build Your Own AI Agent-Based Solution with the Generative AI Hub
 
