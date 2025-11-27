@@ -87,7 +87,7 @@ EscalationOutcome result = chatClient
 - EscalationOutcome result = new EscalationOutcome(true, true, "Done");
 ```
 
-In total, your `resolveEscalation()` method should look something like the following.
+In total, your `getPurchaseOrderItems()` method should look something like the following.
 ```java
 public EscalationOutcome resolveEscalation(
       PurchaseOrderItem selectedPurchaseOrderItem,
