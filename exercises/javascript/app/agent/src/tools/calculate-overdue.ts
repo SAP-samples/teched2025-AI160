@@ -14,7 +14,7 @@ export const calculateOverdueTool = tool(
     },
     {
         name: 'calculate_overdue',
-        description: 'Calculate the overdue time in millisecond from a time in SAP timestamp format /Date(1234567890123)/ to current timestamp. If the result is positive, the date is not overdue; if negative, the date is in the past and overdue.',
+        description: 'Calculate the overdue time in milliseconds from a time in SAP timestamp format /Date(1234567890123)/ to current timestamp. If the result is positive, the date is not overdue; if negative, the date is in the past and overdue.',
         schema: z.object({
             sapTimestamp: z.string().meta({ description: 'SAP timestamp in format /Date(1234567890123)/' }).min(1)
         })
