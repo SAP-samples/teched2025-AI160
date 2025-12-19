@@ -1,4 +1,4 @@
-# Exercise 2 - Escalating overdue Items: Writing Data to S/4
+# Exercise 2 - Escalating Overdue Items: Writing Data to S/4
 
 In this exercise, you'll enable the AI agent to resolve a business escalation in an agentic way by creating a custom tool that writes data into SAP S/4HANA, completing the end-to-end workflow.
 
