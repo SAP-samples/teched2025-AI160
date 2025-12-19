@@ -76,16 +76,16 @@ export async function startPurchaseOrderAgent(prompt: string, config: any): Prom
 **Process:**
 
 1. Get PO items by calling the 'get_purchase_order_items' tool and filter the items based on the user prompt.
-  - If you cannot apply the user input precisely to filter tool, then just get as many PO items as you can which matches the criterion.
+  - If you cannot apply the user input precisely to filter, then just get as many PO items as you can which matches the criteria.
   - Once you get all relevant PO items from the tool, filter the items again based on the user input by checking the content WITHOUT calling the tool.
   - Make sure you respect the user input and only return items that are asked by user.
   - For example, when user asks PO items to south germany, then you can call the tool with country filter 'DE' first, then filter the result again by checking city names if they are located in south Germany.
-2. For each item, calculate if overdue by comparing delivery date to current date using 'calculate_overdue' tool. If the value is negative, the item is overdue.
+2. For each item, calculate if overdue by comparing the delivery date to the current date using the 'calculate_overdue' tool. If the value is negative, the item is overdue.
 3. Discard non-overdue items from further processing and return final result.
 
-Always call the 'format_response_purchase_orders' tool to format PO items into a pure JSON in the final response.
+Always call the 'format_response_purchase_orders' tool to format PO items into pure JSON in the final response.
 
-Do NOT include any text in your response other than a valid JSON in the final response.
+Do NOT include any text in your response other than valid JSON in the final response.
 For example, the followings are NOT valid: Here is the ..., \`\`\`json { ... } \`\`\`
 
 The final response should look like this: {"data": [ ... ] }
@@ -113,7 +113,7 @@ Please contact us via the email info@example.com if urgent.
 \`\`\`
 
 After drafting the email, check if user asks to create a note for PO items.
-Always use the 'create_note' tool to create note.
+Always use the 'create_note' tool to create a note.
 Always confirm successful note creation to the user.
 `
         ),

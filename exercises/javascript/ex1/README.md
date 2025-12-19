@@ -62,7 +62,7 @@ Before enabling the tools, let's understand their implementation.
 
 ### 1. **Get Purchase Order Items**
 Open [app/agent/src/tools/get-purchase-order-item.ts](../../javascript/app/agent/src/tools/get-purchase-order-item.ts) and study the implementation.
-The `getPurchaseOrderItemsTool` tool is designed to fetch Purchase Order items from the SAP S/4HANA database and has filtering capabilities for plant, city, and country.
+The `getPurchaseOrderItemsTool` tool is designed to fetch Purchase Order items from SAP S/4HANA and has filtering capabilities for plant, city, and country.
 
 The underlying `fetchPurchaseOrderItems()` function called by the tool handles OData queries and returns data including delivery schedules and notes.
 
