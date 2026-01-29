@@ -13,9 +13,9 @@
     "node": "^22"
   },
   "dependencies": {
-    "langchain": "^0.3.0",
-    "@langchain/core": "^0.3.0",
-    "@langchain/langgraph": "^0.2.0",
+    "langchain": "^1.0.0",
+    "@langchain/core": "^1.0.0",
+    "@langchain/langgraph": "^1.0.0",
     "@sap-ai-sdk/langchain": "^2.0.0",
     "@sap-ai-sdk/orchestration": "^2.0.0",
     "@sap-cloud-sdk/util": "^4.1.2",
@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
-    "@types/express": "^5.0.3"
+    "@types/express": "^5.0.3",
+    "tsx": "^4.19.0"
   }
 }
