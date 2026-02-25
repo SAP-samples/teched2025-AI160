@@ -16,9 +16,9 @@
     "langchain": "^1.0.0",
     "@langchain/core": "^1.0.0",
     "@langchain/langgraph": "^1.0.0",
-    "@sap-ai-sdk/langchain": "^2.0.0",
-    "@sap-ai-sdk/orchestration": "^2.0.0",
-    "@sap-cloud-sdk/util": "^4.1.2",
+    "@sap-ai-sdk/langchain": "^2.7.0",
+    "@sap-ai-sdk/orchestration": "^2.7.0",
+    "@sap-cloud-sdk/util": "^4.4.0",
     "cors": "^2.8.5",
     "dotenv": "16.4.5",
     "express": "^5.1.0"
