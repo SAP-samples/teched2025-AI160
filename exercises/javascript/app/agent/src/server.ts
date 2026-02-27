@@ -108,6 +108,10 @@ app.use((err: any, req: any, res: any, next: any) => {
 
 const port = process.env.PORT || 3001;
 
-app.listen(port, () => {
-    logger.info(`AI Agent server started on port ${port}`);
+app.listen(port, (err) => {
+    if (err) {
+        logger.error(`Error starting AI Agent server: ${err}`);
+    } else {
+        logger.info(`AI Agent server started on port ${port}`);
+    }
 });
