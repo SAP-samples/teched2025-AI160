@@ -22,11 +22,8 @@ cd exercises/javascript/app
 Install the required dependencies using:
 
 ```bash
-npm ci
+npm install
 ```
-
-> [!NOTE]
-> `npm ci` installs dependencies as per `package-lock.json`, ensuring consistency.
 
 
 ### 3. Start the Application:

@@ -21,6 +21,7 @@
 
 This repository contains material for multiple sessions:
 - SAP TechEd 2025 ["AI160 - Build Your Own AI Agent-Based Solution with the Generative AI Hub"](https://www.sap.com/events/teched/berlin/flow/sap/te25/catalog-inperson/page/catalog/session/1749827524991001reiY).
+- DSAG TechXchange 2026 ["AI160 - Build Your Own AI Agent-Based Solution with the Generative AI Hub"](https://www.dsag.de/techxchange).
 
 ## Overview
 

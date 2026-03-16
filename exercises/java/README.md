@@ -34,10 +34,12 @@ The application consists of the following main components:
 ### Exercises
 
 The exercises demonstrate how to build AI agents using the SAP Cloud SDK for AI and SpringAI, focusing on:
-- Building AI agents with tool calling capabilities
-- Implementing business logic through agent tools
-- Managing agent workflows
+- Building AI agents with tool calling capabilities,
+- Implementing business logic through agent tools,
+- Managing agent workflows.
 
+
+Exercises:
 - [Preparation](./ex0/README.md)
 - [Exercise 1 - Working with PO Items: Tool Usage and Data Fetching from S/4](./ex1/README.md)
 - [Exercise 2 - Escalating overdue Items: _Human-in-the-loop_ Workflow and Writing Data to S/4](./ex2/README.md)
