@@ -11,14 +11,14 @@ If you are at TechEd 2025 in Berlin and use a device provided at the hands-on se
 
 ### 1. Navigate to the Application Directory:
 
-Assuming you are still in the root directory of the repository, navigate to the app folder:
+Assuming you are still in the root directory of the repository with your terminal, navigate to the app folder:
 ```shell
 cd exercises/java/app
 ```
 
 ### 2. Install Dependencies:
 
-Install the required dependencies using:
+Install the required dependencies through your terminal using:
 ```shell
 mvn clean install
 ```

@@ -15,7 +15,7 @@ If you have any trouble solving the exercise, you can find the code to solve it 
 
 ## Step 1: Set up connection to AI Core
 
-Open [demo/GetPurchaseOrderTask.java](../app/src/main/java/com/sap/demo/GetPurchaseOrdersTask.java) and locate the `getPurchaseOrderItems` method.
+Open [src/main/java/com/sap/demo/GetPurchaseOrderTask.java](../app/src/main/java/com/sap/demo/GetPurchaseOrdersTask.java) and locate the `getPurchaseOrderItems` method.
 Right now, it simply returns all PurchaseOrderItems through directly using the `ReadPurchaseOrderTool`.
 But before we change this, we first need to set up the connection to AI Core.
 
@@ -165,7 +165,7 @@ In each of these calls, the AI agent will filter the PO items after it received 
 
 ## Summary
 
-You have successfully built an AI agent using the SAP Cloud SDK for AI and SpringAI.
+You have successfully built an AI agent using the SAP Cloud SDK for AI and Spring AI.
 Your agent is able to read data from an S/4 system and perform filtering operations on the data that a traditional OData query is unable to do.
 
 In the next exercise, we will extend the AI agent to handle a more complex business task. 

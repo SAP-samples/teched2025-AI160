@@ -1,17 +1,17 @@
 # Build Your Own AI Agent-Based Solution with the Generative AI Hub
 
-This track introduces attendees to building AI agents using the [SAP Cloud SDK for AI (Java)](https://github.com/SAP/ai-sdk-java) and [SpringAI](https://spring.io/projects/spring-ai).
+This track introduces attendees to building AI agents using the [SAP Cloud SDK for AI (Java)](https://github.com/SAP/ai-sdk-java) and [Spring AI](https://spring.io/projects/spring-ai).
 
 ## Project Structure
 The [project](app/src/main/java/com/sap/demo) used for this session is a Purchase Order Management application with AI agent capabilities.
 You will get more information in the exercises.
 
 ### Dependencies
-The necessary dependencies for the exercises are specified in the pom files.
+The necessary dependencies for the exercises are already specified in the pom files.
 
 ### Related Source Code
 
-The application consists of the following main components:
+The application consists of the following main components located at `exercises/java/app/src/main/java/com/sap/demo`:
 
 - **Main class ([Application.java](app/src/main/java/com/sap/demo/Application.java))**: This class governs the main application flow of the demo app you are using.
 
@@ -33,7 +33,7 @@ The application consists of the following main components:
 
 ### Exercises
 
-The exercises demonstrate how to build AI agents using the SAP Cloud SDK for AI and SpringAI, focusing on:
+The exercises demonstrate how to build AI agents using the SAP Cloud SDK for AI and Spring AI, focusing on:
 - Building AI agents with tool calling capabilities,
 - Implementing business logic through agent tools,
 - Managing agent workflows.

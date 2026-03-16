@@ -17,9 +17,9 @@ If you have any trouble solving the exercise, you can find the code to solve it 
 
 ## Step 1: Create the instructions for the AI Agent
 
-Open [demo/EscalateTask.java](../app/src/main/java/com/sap/demo/EscalateTask.java) and locate the `resolveEscalation` method.
+Open [src/main/java/com/sap/demo/EscalateTask.java](../app/src/main/java/com/sap/demo/EscalateTask.java) and locate the `resolveEscalation` method.
 This  code is invoked if the user clicks on the "Escalate" button next to an overdue PO item in the table shown in the UI.
-The returned object is of type `EscalationOutcome`, which is record class storing the necessary information of the escalation.
+The returned object is of type `EscalationOutcome`, which is a record class storing the necessary information of the escalation.
 Right now, the `resolveEscalation` method simply returns an `EscalationOutcome` object with the text "Done".
 To change this, first notice that we already provided the code that creates a `ChatClient` using Claude 4 Sonnet where tool usage is enabled. 
 
@@ -160,6 +160,10 @@ If the user is satisfied with the draft, the AI agent will send the mail and sav
 
 If you want, you can change the system or user prompt in the `EscalateTask` class and see what changes.
 You could, for example, tell the AI agent in what tone (e.g., _funny_ or _angry_) the escalation mail should be written.
+Also consider changing the underlying AI model that is used from Claude 4 to something else.
+See how the texts generated for the user interaction and the generated mails change when using a different model.
+Finally, consider the `DemandDiscountTool` that is also provided.
+Think about how this could be integrated into the agent (you need to add it to the list of tools and probably also explain the agent when to use the tool in the `SYSTEM_MESSAGE`).
 
 
 ## Summary
