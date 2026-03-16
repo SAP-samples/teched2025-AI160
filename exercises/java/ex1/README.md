@@ -128,10 +128,11 @@ In total, your `getPurchaseOrderItems()` method should look something like the f
 ## Step 5: Test the Complete Workflow
 
 Save your changes and restart the application.
-To do this in Eclipse, click the "Save" button (💾) in the top left corner of your screen. 
+If you run the application through a **terminal**, you can restart the application by pressing _ctrl + c_ in the terminal that currently runs the application and re-run the command `mvn spring-boot:run`.
+
+To do the same **in Eclipse**, click the "Save" button (💾) in the top left corner of your screen. 
 Then click the red "Stop" button (🟥) above the terminal in which your application is running. 
 Now you can click the green "Run" button on top of the screen again.
-(If you run the application through a terminal outside Eclipse, you can restart the application by typing _ctrl + c_ in the terminal that currently runs the application and re-run the command `mvn spring-boot:run`.)
 
 ![img/img_30.png](img/img_30.png)
 

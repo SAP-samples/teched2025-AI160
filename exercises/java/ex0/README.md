@@ -1,7 +1,7 @@
 # Preparation - Bring-Your-Own-Device
 
 This guide is here to help you set up a [Spring Boot](https://spring.io/projects/spring-boot)-based web application if you are **not** using a device provided at TechEd 2025 in Berlin.
-If you are at TechEd 2025 in Berlin and use a device provided at the hands-on session there, please refer to [this guide](README.md) instead.
+If you are at TechEd 2025 in Berlin and use a device provided at the hands-on session there, please refer to [this guide](TechEd2025Guide.md) instead.
 
 ### Prerequisites:
 - [ ] Java (JRE17+) and Maven installed.
