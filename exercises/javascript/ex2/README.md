@@ -143,6 +143,6 @@ You have successfully built an AI agent that uses multiple tools to solve a comp
 Your agent is able to interact with the user and write data to an S/4HANA system.
 
 This is the end of the main part of the workshop.
-There is *bonus* third exercise, where we will use features from the AI SDK and AI Core's Orchestration modules to enhance the AI agent.
+There is a *bonus* third exercise, where we will use features from the AI SDK and AI Core's Orchestration modules to enhance the AI agent.
 
 Continue to [Exercise 3 - (Optional) Harmonization, Masking, and Prompt Shield](../ex3/README.md).

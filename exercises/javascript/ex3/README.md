@@ -75,7 +75,7 @@ A prompt attack is a malicious input that is designed to bypass a model's safety
 You can use the prompt shield feature of Orchestration service to protect the AI agent against prompt attacks.
 
 To do this, you will add an input filter config and set `promptShield` to true.
-In the same intialization step of the `OrchestrationClient`, add the following `inputFilter` configuration:
+In the same initialization step of the `OrchestrationClient`, add the following `inputFilter` configuration:
 
 ```typescript
 const model = new OrchestrationClient({

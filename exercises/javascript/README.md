@@ -4,9 +4,8 @@ This track introduces attendees to building AI agents using the [SAP Cloud SDK f
 
 ## 1. Prerequisite
 
-1. For this exercise, you will use [VS Code](https://code.visualstudio.com) as the IDE.
-Open the IDE by typing "Visual Studio Code" in the Windows search bar.
-2. Open the terminal in VS Code by navigating to **Terminal -> New Terminal** from the top menu.
+1. For this exercise, you will need an IDE, you can for example use [VS Code](https://code.visualstudio.com).
+2. Open a terminal (either in VS Code this is done by navigating to **Terminal -> New Terminal** from the top menu).
 3. Clone the project repository by running the following command in the terminal:
 
     ```shell
@@ -16,7 +15,8 @@ Open the IDE by typing "Visual Studio Code" in the Windows search bar.
     After cloning, you’ll see a new folder with the project’s name in the same location where you ran git clone.
     *(By default, this folder is created in the user directory, e.g. C:\Users\<user-name>\teched2025-AI160.)*
 
-4. Go to **File** → **Open Folder**, and select the cloned folder.
+4. Open the newly cloned project in your IDE.
+   (In VSCode, you can go to **File** → **Open Folder**, and select the cloned folder.)
 5. Verify that Node.js (v22) and npm are installed by running the following commands in the terminal:
 
 ```shell
