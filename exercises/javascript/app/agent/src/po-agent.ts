@@ -30,7 +30,7 @@ const toolNode = new ToolNode(tools);
 // const model = new OrchestrationClient({
 //     promptTemplating: {
 //         model: {
-//             name: 'gpt-4o'
+//             name: 'gpt-5-mini'
 //         }
 //     }
 // }, { maxRetries: 0 });
