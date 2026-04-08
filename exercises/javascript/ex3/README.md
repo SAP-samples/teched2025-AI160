@@ -25,13 +25,13 @@ For example, you could try the following:
 const model = new OrchestrationClient({
     promptTemplating: {
         model: {
-            name: 'gpt-4.1'  // Use GPT-4.1 as the LLM
+            name: 'anthropic--claude-4.5-haiku'  // Use Claude Haiku as the LLM
         }
     }
 }, { maxRetries: 0 });
 ```
 
-This will use Chat GPT 4.1 as the LLM for the AI agent.
+This will use Claude Haiku as the LLM for the AI agent.
 Save your changes and wait for the app to restart.
 Enter the search query again and observe the changes.
 
@@ -50,7 +50,7 @@ For example, copy the following `masking` configuration to mask email addresses:
 const model = new OrchestrationClient({
     promptTemplating: {
         model: {
-            name: 'gpt-4.1'
+            name: 'anthropic--claude-4.5-haiku'
         }
     },
     // Enable masking using this code
@@ -81,7 +81,7 @@ In the same initialization step of the `OrchestrationClient`, add the following 
 const model = new OrchestrationClient({
     promptTemplating: {
         model: {
-            name: 'gpt-4.1'
+            name: 'anthropic--claude-4.5-haiku'
         }
     },
     masking: {
