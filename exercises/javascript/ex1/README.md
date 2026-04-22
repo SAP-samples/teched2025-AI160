@@ -112,14 +112,14 @@ const tools = [
 
 ## Step 3: Initialize the Orchestration LangChain Client
 
-You need to instantiate the chat model to be able to connect with AI Core and get access to the deployed `gpt-5-mini` model. 
+You need to instantiate the chat model to be able to connect with AI Core and get access to the deployed `anthropic--claude-4.5-haiku` model. 
 Type or uncomment the following code snippet:
 
 ```typescript
 const model = new OrchestrationClient({
     promptTemplating: {
         model: {
-            name: 'gpt-5-mini'
+            name: 'anthropic--claude-4.5-haiku'
         }
     }
 }, { maxRetries: 0 });

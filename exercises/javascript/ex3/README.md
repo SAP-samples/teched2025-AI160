@@ -18,14 +18,14 @@ The [Harmonized API](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-g
 All you have to do is to change the `name` parameter in `model` when creating the `promptTemplating` module configuration.
 To do this, locate the client initialization code (`new OrchestrationClient`) in the [app/agent/src/po-agent.ts](../../javascript/app/agent/src/po-agent.ts) file.
 
-Here, delete `gpt-5-mini` and do `Ctrl` + `Space` to see the IDE suggestions.
+Here, delete `anthropic--claude-4.5-haiku` and do `Ctrl` + `Space` to see the IDE suggestions.
 For example, you could try the following:
 
 ```typescript
 const model = new OrchestrationClient({
     promptTemplating: {
         model: {
-            name: 'anthropic--claude-4.5-haiku'  // Use Claude Haiku as the LLM
+            name: 'anthropic--claude-4.6-sonnet'  // Use Claude Sonnet as the LLM
         }
     }
 }, { maxRetries: 0 });
