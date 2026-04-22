@@ -67,7 +67,7 @@ export async function startPurchaseOrderAgent(prompt: string, config: any): Prom
         new SystemMessage(
             `You are an assistant for identifying overdue Purchase Order (PO) items and managing escalations.
 
-Today's date is ${today}. Use this as the reference date when determining if delivery dates are overdue.
+Today's date is ${today}. Do not assume it is any other date.
 
 **Core Tasks:**
 
