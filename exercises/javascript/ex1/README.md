@@ -84,7 +84,7 @@ async ({
 
 ### 2. **Calculate Overdue Status**
 
-Next, open [app/agent/src/tools/calculate-overdue.ts](../../app/agent/src/tools/calculate-overdue.ts) and examine the tool logic.
+Next, open [app/agent/src/tools/calculate-overdue.ts](../../javascript/app/agent/src/tools/calculate-overdue.ts) and examine the tool logic.
 
 This utility tool processes SAP timestamp format `/Date(1234567890123)/` and compares delivery dates with current time.
 It returns millisecond difference where positive values indicate future dates (not overdue) and negative values indicate past dates (overdue).
