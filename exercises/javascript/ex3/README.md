@@ -31,7 +31,7 @@ const model = new OrchestrationClient({
 }, { maxRetries: 0 });
 ```
 
-This will use Claude Haiku as the LLM for the AI agent.
+This will use Claude Sonnet as the LLM for the AI agent.
 Save your changes and wait for the app to restart.
 Enter the search query again and observe the changes.
 
@@ -50,7 +50,7 @@ For example, copy the following `masking` configuration to mask email addresses:
 const model = new OrchestrationClient({
     promptTemplating: {
         model: {
-            name: 'anthropic--claude-4.5-haiku'
+            name: 'anthropic--claude-4.6-sonnet'
         }
     },
     // Enable masking using this code
@@ -81,7 +81,7 @@ In the same initialization step of the `OrchestrationClient`, add the following 
 const model = new OrchestrationClient({
     promptTemplating: {
         model: {
-            name: 'anthropic--claude-4.5-haiku'
+            name: 'anthropic--claude-4.6-sonnet'
         }
     },
     masking: {
