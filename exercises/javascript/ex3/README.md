@@ -18,20 +18,20 @@ The [Harmonized API](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-g
 All you have to do is to change the `name` parameter in `model` when creating the `promptTemplating` module configuration.
 To do this, locate the client initialization code (`new OrchestrationClient`) in the [app/agent/src/po-agent.ts](../../javascript/app/agent/src/po-agent.ts) file.
 
-Here, delete `gpt-4o` and do `Ctrl` + `Space` to see the IDE suggestions.
+Here, delete `anthropic--claude-4.5-haiku` and do `Ctrl` + `Space` to see the IDE suggestions.
 For example, you could try the following:
 
 ```typescript
 const model = new OrchestrationClient({
     promptTemplating: {
         model: {
-            name: 'gpt-4.1'  // Use GPT-4.1 as the LLM
+            name: 'anthropic--claude-4.6-sonnet'  // Use Claude Sonnet as the LLM
         }
     }
 }, { maxRetries: 0 });
 ```
 
-This will use Chat GPT 4.1 as the LLM for the AI agent.
+This will use Claude Sonnet as the LLM for the AI agent.
 Save your changes and wait for the app to restart.
 Enter the search query again and observe the changes.
 
@@ -50,7 +50,7 @@ For example, copy the following `masking` configuration to mask email addresses:
 const model = new OrchestrationClient({
     promptTemplating: {
         model: {
-            name: 'gpt-4.1'
+            name: 'anthropic--claude-4.6-sonnet'
         }
     },
     // Enable masking using this code
@@ -81,7 +81,7 @@ In the same initialization step of the `OrchestrationClient`, add the following 
 const model = new OrchestrationClient({
     promptTemplating: {
         model: {
-            name: 'gpt-4.1'
+            name: 'anthropic--claude-4.6-sonnet'
         }
     },
     masking: {

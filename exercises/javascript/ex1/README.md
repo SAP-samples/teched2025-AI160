@@ -84,7 +84,7 @@ async ({
 
 ### 2. **Calculate Overdue Status**
 
-Next, open [app/agent/src/tools/calculate-overdue.ts](../../app/agent/src/tools/calculate-overdue.ts) and examine the tool logic.
+Next, open [app/agent/src/tools/calculate-overdue.ts](../../javascript/app/agent/src/tools/calculate-overdue.ts) and examine the tool logic.
 
 This utility tool processes SAP timestamp format `/Date(1234567890123)/` and compares delivery dates with current time.
 It returns millisecond difference where positive values indicate future dates (not overdue) and negative values indicate past dates (overdue).
@@ -112,14 +112,14 @@ const tools = [
 
 ## Step 3: Initialize the Orchestration LangChain Client
 
-You need to instantiate the chat model to be able to connect with AI Core and get access to the deployed `gpt-4o` model. 
+You need to instantiate the chat model to be able to connect with AI Core and get access to the deployed `anthropic--claude-4.5-haiku` model. 
 Type or uncomment the following code snippet:
 
 ```typescript
 const model = new OrchestrationClient({
     promptTemplating: {
         model: {
-            name: 'gpt-4o'
+            name: 'anthropic--claude-4.5-haiku'
         }
     }
 }, { maxRetries: 0 });

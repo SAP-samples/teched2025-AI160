@@ -30,7 +30,7 @@ const toolNode = new ToolNode(tools);
 // const model = new OrchestrationClient({
 //     promptTemplating: {
 //         model: {
-//             name: 'gpt-4o'
+//             name: 'anthropic--claude-4.5-haiku'
 //         }
 //     }
 // }, { maxRetries: 0 });
@@ -62,9 +62,12 @@ const memory = new MemorySaver();
 const app = workflow.compile({ checkpointer: memory });
 
 export async function startPurchaseOrderAgent(prompt: string, config: any): Promise<MessageContent | undefined> {
+    const today = new Date().toISOString().split('T')[0];
     const initMessages = [
         new SystemMessage(
             `You are an assistant for identifying overdue Purchase Order (PO) items and managing escalations.
+
+Today's date is ${today}. Do not assume it is any other date.
 
 **Core Tasks:**
 
